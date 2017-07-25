@@ -38,7 +38,14 @@ import 'jquery';
 
 // 사용자 정의 함수 모음
 import scroll from './scroll';
+import Slider from './Slider';
+
+// 사용자 정의 클래스 선언 및 초기화
+var slider = new Slider();
 
 /* 스크롤 관련 */
 scroll.ScrollMoving();
 scroll.ScrollHeader();
+
+// 슬라이드 클래스 사용
+slider.event();
