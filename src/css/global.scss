@@ -6,6 +6,7 @@ body, html {
   box-sizing: border-box;
   font-family: 'Noto Sans KR';
   height: 100%;
+  background-color: #ddd;
 }
 
 * {
@@ -14,4 +15,5 @@ body, html {
 
 /* 기타 */
 a { color: white; text-decoration: none; }
-ul,li,ol { list-style: none; }
+ul,li,ol { list-style: none; margin: 0; padding: 0; }
+h1,h2,h3,h4,h5,h6,p { margin: 0; padding: 0; }

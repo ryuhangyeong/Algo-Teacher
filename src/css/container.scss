@@ -1,10 +1,9 @@
 /* container */
 
 .container {
-  width: 1000px; margin: 5rem auto;
-
+  width: 1000px; margin: 0 auto;
+  overflow: hidden;
   .row {
-    overflow: hidden;
     .card {
       float: left;
       width: 31.3333%;
@@ -18,7 +17,7 @@
       text-align: center;
 
       &:hover {
-        transform: translateY(-0.7rem);
+        transform: translateY(0.7rem);
       }
 
       .card_title {
@@ -28,5 +27,9 @@
         }
       }
     }
+  }
+
+  h2 {
+    margin: 2rem 0;
   }
 }

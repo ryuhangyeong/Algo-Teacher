@@ -1,0 +1,38 @@
+.slider {
+  overflow: hidden;
+
+  ul {
+    position: relative;
+    right: 0;
+
+    li {
+      float: left;
+      width: 1000px;
+    }
+  }
+}
+
+.slider_control {
+  overflow: hidden;
+
+  .button {
+    display: inline-block;
+    padding: 1.5rem 4rem;
+    background-color: $pink;
+    color: white;
+    border-radius: 1.5rem;
+    transition: all 1s;
+
+    &:hover {
+      background-color: $deeppink;
+    }
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+}
