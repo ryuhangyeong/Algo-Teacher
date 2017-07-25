@@ -7,6 +7,12 @@ header {
   align-items: center;
   justify-content: center;
 
+  /* ScrollHeader 관련 클래스 */
+  .shrink {
+    background-color: rgba(0,0,0,.8);
+    text-align: center;
+  }
+
   #logo {
     position: fixed;
     top: 0;
@@ -14,6 +20,8 @@ header {
     padding: 1rem;
     width: 100%;
     z-index: 9999;
+
+
 
     a {
       font-size: 2rem;
@@ -25,6 +33,8 @@ header {
 
       }
     }
+
+
   }
 
   #intro {
