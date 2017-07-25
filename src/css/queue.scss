@@ -4,13 +4,15 @@
 .queue_control {
   text-align: right;
 
-  .btn {
+  button {
   	display: inline-block;
   	padding: 1.5rem 2.5rem;
   	background-color: $btnblue;
   	color: white;
   	border-radius: 0.5rem;
   	transition: all 1s;
+    border: none;
+    cursor: pointer;
 
     &:hover {
       opacity: 0.5;

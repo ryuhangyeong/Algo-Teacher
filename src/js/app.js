@@ -44,7 +44,6 @@ import Queue from './Queue';
 
 // 사용자 정의 클래스 선언 및 초기화
 var slider = new Slider();
-var queue = new Queue();
 
 /* 스크롤 관련 */
 scroll.ScrollMoving();
@@ -57,5 +56,5 @@ slider.event();
 fixed.event();
 
 // queue
-
-queue.event();
+Queue.init();
+Queue.event();
