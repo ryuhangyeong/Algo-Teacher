@@ -1,11 +1,12 @@
 class Slider {
-    constructor() {
-      this.leftbutton = $('#slider_left');
-      this.rightbutton = $('#slider_right');
-      this.sliderUl = $('.slider ul');
-      this.sliderCount = $('.slider li').length;
+    constructor(left, right, ul, li, width) {
+      this.leftbutton = left;
+      this.rightbutton = right;
+      this.sliderUl = ul;
+      this.sliderCount = li.length;
       this.currentIndex = 0;
       this.sliderUl.css('width', 1000 * this.sliderCount);
+      this.width = width;
     }
 
     event() {
@@ -21,7 +22,7 @@ class Slider {
         } else {
           this.currentIndex--;
           this.sliderUl.animate({
-            'right': this.currentIndex * 1000
+            'right': this.currentIndex * this.width
           })
         }
       });
@@ -38,7 +39,7 @@ class Slider {
         } else {
           this.currentIndex++;
           this.sliderUl.animate({
-            'right': this.currentIndex * 1000
+            'right': this.currentIndex * this.width
           });
         }
       })
