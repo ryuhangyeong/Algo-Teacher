@@ -38,10 +38,13 @@ import 'jquery';
 
 // 사용자 정의 함수 모음
 import scroll from './scroll';
+import fixed from './fixed';
 import Slider from './Slider';
+import Queue from './Queue';
 
 // 사용자 정의 클래스 선언 및 초기화
 var slider = new Slider();
+var queue = new Queue();
 
 /* 스크롤 관련 */
 scroll.ScrollMoving();
@@ -49,3 +52,10 @@ scroll.ScrollHeader();
 
 // 슬라이드 클래스 사용
 slider.event();
+
+// fixed 버튼 함수 사용
+fixed.event();
+
+// queue
+
+queue.event();

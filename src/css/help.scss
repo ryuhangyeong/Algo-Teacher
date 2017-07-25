@@ -1,0 +1,17 @@
+.help {
+  .row {
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+
+    .item {
+      float: left;
+      width: 33.3333%;
+      cursor: pointer;
+    }
+  }
+
+  img {
+    width: 70%;
+  }
+}
