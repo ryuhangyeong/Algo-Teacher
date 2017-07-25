@@ -1,0 +1,17 @@
+@import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR';
+  height: 100%;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+/* 기타 */
+a { color: white; text-decoration: none; }
+ul,li,ol { list-style: none; }

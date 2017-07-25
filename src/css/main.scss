@@ -1,7 +1,8 @@
-@import "_colors";
+/* 색상 */
+@import "colors";
 
-#randomInt {
-  background-color: $main;
-  border: 1px solid black;
-  padding: 5rem;
-}
+/* global */
+@import "global";
+
+/* header */
+@import "header";

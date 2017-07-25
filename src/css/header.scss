@@ -1,0 +1,81 @@
+header {
+  background-image: url('../img/background.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  #logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    width: 100%;
+    z-index: 9999;
+
+    a {
+      font-size: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:hover {
+        color: white;
+
+      }
+    }
+  }
+
+  #intro {
+    text-align: center;
+    color: white;
+    position: relative;
+
+    &:before {
+      display: block;
+      position: absolute;
+      height: 1rem;
+      width: 35rem;
+      background-color: white;
+      content: "";
+      top: -2rem;
+    }
+
+    &:after {
+      display: block;
+      position: absolute;
+      height: 1rem;
+      width: 35rem;
+      background-color: white;
+      content: "";
+      bottom: -2rem;
+    }
+
+    h1 {
+      width: 100%;
+      font-size: 3.5rem;
+      font-weight: 600;
+    }
+  }
+
+  #more {
+    position: absolute;
+    bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: all ease .5s;
+
+    &:hover {
+      color: $pink;
+      transform: translateY(-1rem);
+    }
+
+    i {
+      font-size: 2rem;
+    }
+  }
+}
