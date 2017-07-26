@@ -67,10 +67,10 @@
     <div class="content">
       <div class="hashtable">
         <div class="hashtable_control">
-          <input type="text" class="hashtable_input_name">
-          <input type="text" class="hashtable_input_email">
-          <button class="hashtable_create">추가</button>
-          <button class="hashtable_remove">삭제</button>
+          <input type="text" class="hashtable_input_name" id="hashtable_input_name">
+          <input type="text" class="hashtable_input_email" id="hashtable_input_email">
+          <button class="hashtable_create" id="hashtable_create">추가</button>
+          <button class="hashtable_remove" id="hashtable_remove">삭제</button>
         </div>
         <div class="hashtable_table" id="hashtable_table">
           <table></table>
@@ -78,15 +78,11 @@
       </div>
     </div>
 
-    <h2>설명</h2>
-    <div class="content">
-      <p>이름이 다르더라도 해시 값이 동일하면 해시테이블 데이터 추가시 충돌이 발생한다. 충돌을 해결하는 방법에는 ~ 와 ~ 가 있다. 아래에서 자세히 알아보도록 하자.</p>
-    </div>
-
     <h2>선형 탐색</h2>
     <div class="content">
       <p>선형 탐색법은 새 원소 추가시 해시 값이 이미 점유된 상태라면 해시 값 + 1을 찾아보고, 해시 값 + 1이 점유되었다면 해시 값 + 2를 찾아보는 식으로 충돌을 회피한다.</p>
     </div>
+
     <div class="content">
       <div class="slider_control">
         <div class="button left" id="hashtable_slider_left">
@@ -173,6 +169,22 @@
             </div>
           </li>
         </ul>
+      </div>
+    </div>
+
+    <h2>체이닝</h2>
+    <div class="content">
+      <p>체이닝은 테이블의 인덱스별로 연결리스트를 생성하여 그 안에 원소를 저장하는 기법이다. 충돌을 해결하는 가장 단순한 기법이다.</p>
+    </div>
+    <div class="content">
+      <div class="hashtable">
+        <div class="hashtable_control">
+          <input type="text" class="hashtable_input_name" id="chaining_input_name">
+          <input type="text" class="hashtable_input_email" id="chaining_input_email">
+          <button class="hashtable_create" id="chaining_create">추가</button>
+          <button class="hashtable_remove" id="chaining_remove">삭제</button>
+        </div>
+        <div class="crash_chaining"></div>
       </div>
     </div>
   </div>

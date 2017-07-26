@@ -2,10 +2,10 @@ import Randompeople from './Randompeople';
 import { filter, forEach } from 'lodash';
 
 var Hashtable = {
-  create: $('.hashtable_create'),
-  remove: $('.hashtable_remove'),
-  inputname: $('.hashtable_input_name'),
-  inputemail: $('.hashtable_input_email'),
+  create: $('#hashtable_create'),
+  remove: $('#hashtable_remove'),
+  inputname: $('#hashtable_input_name'),
+  inputemail: $('#hashtable_input_email'),
   hashtablediv: $('#hashtable_table'),
   hashtabletable: $('#hashtable_table table'),
   table: [],
@@ -40,9 +40,9 @@ var Hashtable = {
         // 충돌 사실을 사용자에게 알려준다. 그리고, 충돌 방지법에 대해 알려주도록 한다.
         swal({
           title: "충돌 발생!",
-          text: "<p>이름이 다르더라도 해시 값이 같으면 충돌이 일어나요!</p>",
+          text: "<p>이름이 다르더라도 해시 값이 같으면 충돌이 일어나요!</p><p><b>충돌을 방지하는 선형 탐색과 체이닝에 대해 아래에서 알아보세요!</b></p>",
           html: true,
-          timer: 2000,
+          timer: 3000,
           showConfirmButton: false
         });
         this.rendering('crash', this.findPosition(this.loseloseHashCode(name))[0].key);
@@ -75,23 +75,24 @@ var Hashtable = {
           });
         }, 4000)
         return;
+      } else {
+
+        // 정상 추가 로직
+        swal({
+          type: "success",
+          title: "정상 추가되었어요!",
+          timer: 2000,
+          showConfirmButton: false
+        });
+        // 데이터 상자에 데이터 삽입
+        this.put(name, email);
+        setTimeout(() => {
+          this.randomInput();
+        }, 3000);
+
+        this.rendering('mark', this.findPosition(this.loseloseHashCode(name))[0].key);
+        return;
       }
-
-      // 정상 추가 로직
-      swal({
-        type: "success",
-        title: "정상 추가되었어요!",
-        timer: 2000,
-        showConfirmButton: false
-      });
-      // 데이터 상자에 데이터 삽입
-      this.put(name, email);
-      setTimeout(() => {
-        this.randomInput();
-      }, 3000);
-
-      this.rendering('mark', this.findPosition(this.loseloseHashCode(name))[0].key);
-
     })
   },
 

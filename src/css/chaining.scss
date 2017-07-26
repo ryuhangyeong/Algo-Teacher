@@ -1,0 +1,52 @@
+.crash_chaining {
+  .hashvalue {
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 2rem;
+    background-color: $black;
+    text-align: center;
+    line-height: 3rem;
+    color: white;
+    margin: 2rem 0;
+  }
+  .link {
+    width: 5rem;
+    height: 0.5rem;
+    background-color: $black;
+    display: inline-block;
+    position: relative;
+    left: -0.1rem;
+  }
+
+  .hashbox {
+    display: inline-block;
+    position: relative;
+    width: 3rem;
+    text-align: center;
+  }
+
+  .hashname {
+    position: absolute;
+    top: -1.3rem;
+    background-color: $black;
+    width: 4rem;
+    height: 2rem;
+    color: #fff;
+    line-height: 2rem;
+    z-index: 10;
+  }
+
+  .hashemail {
+    // display: none;
+    position: absolute;
+    top: -4rem;
+    width: 5rem;
+  }
+
+  .null {
+    color: $red;
+    font-weight: bold;
+  }
+
+}

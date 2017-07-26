@@ -43,6 +43,7 @@ import fixed from './fixed';
 import Slider from './Slider';
 import Queue from './Queue';
 import Hashtable from './Hashtable';
+import Chaining from './Chaining';
 
 // 사용자 정의 클래스 선언 및 초기화
 /* 모든 페이지에서 사용하는 공통 슬라이드 */
@@ -69,3 +70,8 @@ Queue.event();
 
 Hashtable.init();
 Hashtable.event();
+
+// Chaining 관련
+
+Chaining.init();
+Chaining.event();
