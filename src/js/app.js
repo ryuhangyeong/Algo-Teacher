@@ -44,6 +44,7 @@ import Slider from './Slider';
 import Queue from './Queue';
 import Hashtable from './Hashtable';
 import Chaining from './Chaining';
+import Linear from './Linear';
 
 // 사용자 정의 클래스 선언 및 초기화
 /* 모든 페이지에서 사용하는 공통 슬라이드 */
@@ -75,3 +76,7 @@ Hashtable.event();
 
 Chaining.init();
 Chaining.event();
+
+// Linear
+Linear.init();
+Linear.event();
