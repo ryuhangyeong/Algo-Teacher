@@ -6,4 +6,25 @@
  	cursor: pointer;
  	border: 1px solid #fff;
  	color: #fff;
+	box-sizing: border-box;
+}
+
+.box {
+	width: 100%;
+	background-color:#212529;
+ 	box-shadow: 0.1px 0.1px 0px #555;
+ 	height: 16rem;
+ 	cursor: pointer;
+ 	border: 1px solid #fff;
+ 	color: #fff;
+	box-sizing: border-box;
+	p {
+		font-size: 1.4rem;
+		padding: 1rem;
+	}
+
+	.red {
+		color: $red;
+		font-weight: bold;
+	}
 }

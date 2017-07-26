@@ -48,13 +48,16 @@ import Hashtable from './Hashtable';
 /* 모든 페이지에서 사용하는 공통 슬라이드 */
 var slider = new Slider($('#slider_left'), $('#slider_right'), $('.slider ul'), $('.slider li'), 1000);
 
+// 선형 탐색을 섦여하기 위한 슬라이드
+var linearslider = new Slider($('#hashtable_slider_left'), $('#hashtable_slider_right'), $('.hashtable_slider ul'), $('.hashtable_slider li'), 972);
+
 /* 스크롤 관련 */
 scroll.ScrollMoving();
 scroll.ScrollHeader();
 
 // 슬라이드 클래스 사용
 slider.event();
-
+linearslider.event();
 // fixed 버튼 함수 사용
 fixed.event();
 
@@ -65,3 +68,4 @@ Queue.event();
 // hashtable
 
 Hashtable.init();
+Hashtable.event();

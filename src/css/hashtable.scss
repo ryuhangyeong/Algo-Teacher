@@ -33,9 +33,11 @@
 
   .hashtable_table {
     margin: 1rem 0;
+    padding: 0;
+
     table, td, th {
       border: 1px solid #ddd;
-      text-align: left;
+      text-align: center;
     }
 
     table {

@@ -3,10 +3,12 @@ class Slider {
       this.leftbutton = left;
       this.rightbutton = right;
       this.sliderUl = ul;
+      this.sliderLi = li;
       this.sliderCount = li.length;
       this.currentIndex = 0;
-      this.sliderUl.css('width', 1000 * this.sliderCount);
+      this.sliderUl.css('width', width * this.sliderCount);
       this.width = width;
+      this.sliderLi.css('width', width)
     }
 
     event() {
