@@ -2,7 +2,6 @@ import Randompeople from './Randompeople';
 
 var Chaining = {
   create: $('#chaining_create'),
-  remove: $('#chaining_remove'),
   inputname: $('#chaining_input_name'),
   inputemail: $('#chaining_input_email'),
   crash_chaining: $('.crash_chaining'),

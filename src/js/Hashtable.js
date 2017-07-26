@@ -94,6 +94,43 @@ var Hashtable = {
         return;
       }
     })
+
+    this.remove.click(() =>{
+      swal({
+        title: "삭제",
+        text: "이름에 해당하는 해시 값을 삭제해요!",
+        type: "input",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        animation: "slide-from-top",
+        inputPlaceholder: "이름을 입력하세요"
+      }, (inputValue) => {
+        if(inputValue === false) return false;
+        if(inputValue === "") {
+          swal.showInputError("이름은 필수입력입니다!");
+          return false;
+        }
+
+        if(this.findkey(inputValue).length == 0) {
+          swal.showInputError("존재하지 않아 삭제 할 수 없습니다.");
+          return false;
+        } else {
+          swal({
+            type: "success",
+            title: "정상 삭제되었어요!",
+            timer: 2000,
+            showConfirmButton: false
+          });
+          this.rendering('crash', this.findPosition(this.loseloseHashCode(inputValue))[0].key);
+          setTimeout(() => {
+            this.delete(inputValue);
+            this.rendering('basic');
+          }, 2000)
+          return;
+        }
+
+      })
+    })
   },
 
   /* utils */
@@ -161,7 +198,18 @@ var Hashtable = {
       value: value
     };
   },
+  findkey: function(key) {
+    var find = filter(this.table, (item) => {
+      return item !== undefined;
+    }).filter((item) => {
+      return item.key == key;
+    })
 
+    return find;
+  },
+  delete: function(key) {
+    delete this.table[this.loseloseHashCode(key)];
+  },
   // search function
 
   /* 이미 데이터 안에 존재하는 유저가 있는지 확인하는 함수 */
