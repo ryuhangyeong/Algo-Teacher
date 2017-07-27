@@ -1,13 +1,55 @@
 var Matrix = {
-  visible: $('.graph_visible'),
-  clear: $('.graph_clear'),
+  visible: $('#graph_visible'),
+  clear: $('#graph_clear'),
   matrix: $('#matrix'),
+  adjacency: $('#adjacency'),
+  adjacency_visible: $('#adjacency_visible'),
+  adjacency_clear: $('#adjacency_clear'),
   Graph: [], // 그래프가 담기는 배열
   PositionX: [], // 위치 정보가 담긴다
   PositionY: [], // 위치 정보가 담긴다.
+  adjacencyGraph: [],
+  adjacencyPositionX: [],
+  adjacencyPositionY: [],
 
   // 이벤트 리스너
   event: function() {
+
+    this.adjacency_visible.click(() => {
+      this.adjacencyGraph = [];
+      this.adjacencyPositionX = [];
+      this.adjacencyPositionY = [];
+
+      var data = this.adjacency.val();
+      var array = data.split("/");
+      var count = array.length;
+
+      var empty = [];
+
+      for(var i = 0; i < count; i++) {
+				empty[i] = [];
+				for(var j = 0; j < count; j++) {
+					empty[i][j] = 0;
+				}
+			}
+
+      for(var i = 0; i< count; i++) {
+				for(var j = 0; j < count; j++) {
+					var t = array[i][j];
+					if(t != undefined) {
+						empty[i][t-1] = 1;
+					} else {
+						continue;
+					}
+				}
+			}
+
+      this.adjacencyGraph = empty;
+
+      var canvas = document.getElementById('output_adjacency');
+      this.drawGraph(this.adjacencyGraph, canvas);
+    });
+
     this.visible.click(() => {
       // 클릭마다 초기 변수 초기화
       this.Graph = [];
@@ -16,13 +58,11 @@ var Matrix = {
 
       var data = this.matrix.val();
       this.Graph = this.getMatrix(data);
+      console.log(this.Graph);
       if(this.isSimpleGrap(this.Graph)) { // 그래프 그리는데 문제가 없다면
 				var canvas = document.getElementById('output');
 				this.drawGraph(this.Graph, canvas); // 배열과 그래프
-
 			}
-
-
     });
 
     this.clear.click(() => {
