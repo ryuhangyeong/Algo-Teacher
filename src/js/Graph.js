@@ -1,4 +1,6 @@
-var Matrix = {
+import { matrix, adjacency } from './graphData';
+
+var Graph = {
   visible: $('#graph_visible'),
   clear: $('#graph_clear'),
   matrix: $('#matrix'),
@@ -47,8 +49,14 @@ var Matrix = {
       this.adjacencyGraph = empty;
 
       var canvas = document.getElementById('output_adjacency');
-      this.drawGraph(this.adjacencyGraph, canvas);
+      this.drawGraph(this.adjacencyGraph, canvas, this.adjacencyPositionX, this.adjacencyPositionY);
     });
+
+    this.adjacency_clear.click(() => {
+      var canvas = document.getElementById('output');
+      this.clearCanvas(canvas);
+      this.adjacency.val(adjacency());
+    })
 
     this.visible.click(() => {
       // 클릭마다 초기 변수 초기화
@@ -58,16 +66,17 @@ var Matrix = {
 
       var data = this.matrix.val();
       this.Graph = this.getMatrix(data);
-      console.log(this.Graph);
       if(this.isSimpleGrap(this.Graph)) { // 그래프 그리는데 문제가 없다면
 				var canvas = document.getElementById('output');
-				this.drawGraph(this.Graph, canvas); // 배열과 그래프
+				this.drawGraph(this.Graph, canvas, this.PositionX, this.PositionY); // 배열과 그래프
 			}
     });
 
     this.clear.click(() => {
       var canvas = document.getElementById('output');
       this.clearCanvas(canvas);
+
+      this.matrix.val(matrix())
     })
   },
 
@@ -135,7 +144,7 @@ var Matrix = {
 			return true;
    },
 
-    drawGraph: function(Graph, canvas) {
+    drawGraph: function(Graph, canvas, PositionX, PositionY) {
       this.clearCanvas(canvas);
 
 			var ctx = canvas.getContext("2d"); // 캔버스에 요소 그리기 위한 준비
@@ -150,15 +159,15 @@ var Matrix = {
 				ctx.fillText(k+1, p_X + canvas.width / 2 -20, p_Y + canvas.height / 2);
 
 				// 배열에 위치 정보 저장
-				this.PositionX.push(p_X);
-				this.PositionY.push(p_Y);
+				PositionX.push(p_X);
+				PositionY.push(p_Y);
 			}
 
 			// edge draw
 			for (var i=0; i<Graph.length; i++) {
 				for (var j=0; j<Graph.length; j++) {
 					if (Graph[i][j]!=0) {
-					  this.lineTo([this.PositionX[i],this.PositionY[i]], [this.PositionX[j],this.PositionY[j]], canvas);
+					  this.lineTo([PositionX[i],PositionY[i]], [PositionX[j], PositionY[j]], canvas);
 					}
 				}
 			}
@@ -200,4 +209,4 @@ var Matrix = {
     }
 }
 
-export default Matrix;
+export default Graph;

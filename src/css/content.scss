@@ -11,5 +11,10 @@
   p {
     font-size: 1.3rem;
     font-weight: bold;
+
+    span {
+      color: $red;
+      font-weight: 900;
+    }
   }
 }

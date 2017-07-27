@@ -45,7 +45,7 @@ import Queue from './Queue';
 import Hashtable from './Hashtable';
 import Chaining from './Chaining';
 import Linear from './Linear';
-import Matrix from './Matrix';
+import Graph from './Graph';
 
 // 사용자 정의 클래스 선언 및 초기화
 /* 모든 페이지에서 사용하는 공통 슬라이드 */
@@ -84,4 +84,4 @@ Linear.event();
 
 // Matrix
 
-Matrix.event();
+Graph.event();

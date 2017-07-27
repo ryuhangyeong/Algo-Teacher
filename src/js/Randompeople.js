@@ -79,7 +79,7 @@ function Randompeople() {
       },
     ];
 
-    var random = Math.floor(Math.random() * (list.length - 1));
+    var random = Math.floor(Math.random() * (list.length));
     return list[random];
 }
 
