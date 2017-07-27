@@ -1,0 +1,62 @@
+.graph {
+  overflow: hidden;
+  .graph_control {
+    text-align: right;
+
+    button {
+    	display: inline-block;
+    	padding: 1.5rem 2.5rem;
+    	background-color: $btnblue;
+    	color: white;
+    	border-radius: 0.5rem;
+    	transition: all 1s;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    .graph_clear {
+      background-color: $red;
+    }
+
+  }
+  .left {
+    float: left;
+    width: 30%;
+    textarea {
+      border: none;
+      resize: none;
+      background-color: $black;
+      color: white;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      font-size: 2rem;
+      height: 500px;
+      padding-top: 3rem;
+      margin-top: 1rem;
+    }
+  }
+
+  .change {
+    float: left;
+  }
+
+  .right {
+    float: right;
+    width: 50%;
+
+    canvas {
+      width: 500px;
+      margin-top: 1rem;
+      height: 500px;
+      border-radius: 0.5rem;
+      background-color: $black;
+
+    }
+  }
+
+
+}

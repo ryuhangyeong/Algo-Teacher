@@ -33,7 +33,7 @@ import '../css/main.scss';
 // 의존하고 있는 HTML 파일들
 import '../queue.html';
 import '../hashtable.html';
-
+import '../graph.html'
 // 의존하고 있는 3rd 라이브러리 및 프레임워크 모음
 import 'jquery';
 
@@ -45,6 +45,7 @@ import Queue from './Queue';
 import Hashtable from './Hashtable';
 import Chaining from './Chaining';
 import Linear from './Linear';
+import Matrix from './Matrix';
 
 // 사용자 정의 클래스 선언 및 초기화
 /* 모든 페이지에서 사용하는 공통 슬라이드 */
@@ -80,3 +81,7 @@ Chaining.event();
 // Linear
 Linear.init();
 Linear.event();
+
+// Matrix
+
+Matrix.event();
