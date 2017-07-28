@@ -146,6 +146,78 @@ var Setbasic = {
   }
 }
 
+var intersectionSet = {
+  intersectionSet_create: $('#intersectionSet_create'),
+  intersectionSet_inputA: $('#intersectionSet_inputA'),
+  intersectionSet_inputB: $('#intersectionSet_inputB'),
+  intersectionSet_text: $('#intersectionSet_text'),
+  intersectionSet_clear: $('#intersectionSet_clear'),
+
+  init: function() {
+    this.inputvalue();
+  },
+
+  event: function() {
+      this.intersectionSet_create.click(() => {
+        var A_array = this.intersectionSet_inputA.val().split(',');
+        var B_array = this.intersectionSet_inputB.val().split(',');
+        var newArray = [];
+
+        // 교집합을 찾기 위한 로직
+        for(var i = 0; i < A_array.length; i++) {
+          for(var j = 0; j < B_array.length; j++) {
+            if(A_array[i] == B_array[j]) {
+              newArray.push(B_array[j]);
+            }
+          }
+        }
+        var str = '';
+        forEach(newArray, (item, index) => {
+          if(index + 1  < newArray.length) {
+            str += "<span>"+item+"</span>"+",";
+          } else {
+            str += "<span>"+item+"</span>";
+          }
+        });
+
+        // 교집합이 존재한다면
+        if(newArray.length != 0) {
+          var str = '';
+          forEach(newArray, (item, index) => {
+            if(index + 1  < newArray.length) {
+              str += "<span>"+item+"</span>"+",";
+            } else {
+              str += "<span>"+item+"</span>";
+            }
+          });
+
+          this.intersectionSet_text.html(str);
+
+        } else {
+          this.intersectionSet_text.html("<span style='color:#f03e3e; font-weight: bold; font-size: 2rem;'>교집합이 존재하지 않아요!</span>");
+          setTimeout(() => {
+            this.inputvalue();
+          }, 2000)
+        }
+
+      });
+
+      this.intersectionSet_clear.click(() => {
+        setTimeout(() => {
+          this.inputvalue();
+        }, 500)
+      })
+  },
+
+  inputvalue: function() {
+    var A = setArray();
+    var B = setArray();
+
+    this.intersectionSet_inputA.val(A);
+    this.intersectionSet_inputB.val(B);
+  }
+}
+
 var unionSet = {
   unionSet_create: $('#unionSet_create'),
   unionSet_inputA: $('#unionSet_inputA'),
@@ -161,16 +233,30 @@ var unionSet = {
       this.unionSet_create.click(() => {
         var A_array = this.unionSet_inputA.val().split(',');
         var B_array = this.unionSet_inputB.val().split(',');
+        var long;
+        var short;
+
+        if(A_array.length == B_array.length) {
+          long = A_array;
+          short = B_array;
+        } else {
+          long = A_array.length >= B_array.length ? A_array : B_array;
+          short = A_array.length <= B_array.length ? A_array : B_array;
+        }
+
         var newArray = [];
 
-        // 교집합을 찾기 위한 로직
-        for(var i = 0; i < A_array.length; i++) {
-          for(var j = 0; j < B_array.length; j++) {
-            if(A_array[i] == B_array[j]) {
-              newArray.push(B_array[j]);
-            }
+        for(var i = 0; i < long.length; i++) {
+          newArray.push(long[i]);
+        }
+
+        for(var j = 0; j < short.length; j++) {
+          if(newArray.indexOf(short[j]) < 0) {
+            newArray.push(short[j])
           }
         }
+
+
         var str = '';
         forEach(newArray, (item, index) => {
           if(index + 1  < newArray.length) {
@@ -218,8 +304,8 @@ var unionSet = {
   }
 }
 
-
 export {
   Setbasic,
+  intersectionSet,
   unionSet
 }

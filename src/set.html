@@ -79,7 +79,7 @@
           <button class="set_create" id="set_create">추가</button>
           <button class="set_remove" id="set_remove">삭제</button>
         </div>
-        <h2 class="setAlert"></h2>
+        <h2 class="setAlert" id="setAlert"></h2>
         <div class="set_visible_box">
           <div class="set_left" id="set_left">{</div>
           <div class="set_text" id="set_text"></div>
@@ -90,6 +90,24 @@
 
     <div class="content">
       <h2>교집합</h2>
+      <div class="set">
+        <input type="text" class="set_input_full"  id="intersectionSet_inputA"/>
+        <input type="text" class="set_input_full"  id="intersectionSet_inputB"/>
+        <div class="set_control">
+          <button class="set_create" id="intersectionSet_create">추가</button>
+          <button class="set_remove" id="intersectionSet_clear">초기화</button>
+        </div>
+        <div class="set_visible_box">
+          <div class="set_left">{</div>
+          <div class="set_text" id="intersectionSet_text"></div>
+          <div class="set_right">}</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="content">
+      <h2>합집합</h2>
       <div class="set">
         <input type="text" class="set_input_full"  id="unionSet_inputA"/>
         <input type="text" class="set_input_full"  id="unionSet_inputB"/>

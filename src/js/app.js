@@ -48,7 +48,7 @@ import Hashtable from './Hashtable';
 import Chaining from './Chaining';
 import Linear from './Linear';
 import Graph from './Graph';
-import { Setbasic, unionSet } from './Set';
+import { Setbasic, intersectionSet, unionSet } from './Set';
 
 // 사용자 정의 클래스 선언 및 초기화
 /* 모든 페이지에서 사용하는 공통 슬라이드 */
@@ -99,6 +99,10 @@ Graph.event();
 Setbasic.init();
 Setbasic.event();
 
-// unionset
+// intersectionSet
+intersectionSet.init();
+intersectionSet.event();
+
+// unionSet
 unionSet.init();
 unionSet.event();
