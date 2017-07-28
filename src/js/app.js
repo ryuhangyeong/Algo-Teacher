@@ -53,14 +53,18 @@ var slider = new Slider($('#slider_left'), $('#slider_right'), $('.slider ul'), 
 
 // 선형 탐색을 섦여하기 위한 슬라이드
 var linearslider = new Slider($('#hashtable_slider_left'), $('#hashtable_slider_right'), $('.hashtable_slider ul'), $('.hashtable_slider li'), 972);
-
+var graph = new Slider($('#graph_slider_left'), $('#graph_slider_right'), $('.graph_slider ul'), $('.graph_slider li'), 1000);
+// var adjacency = new Slider($('#adjacency_slider_left'), $('#adjacency_slider_right'), $('.adjacency_slider ul'), $('.adjacency_slider li'), 1000);
 /* 스크롤 관련 */
+
 scroll.ScrollMoving();
 scroll.ScrollHeader();
 
 // 슬라이드 클래스 사용
 slider.event();
 linearslider.event();
+graph.event();
+// adjacency.event();
 // fixed 버튼 함수 사용
 fixed.event();
 

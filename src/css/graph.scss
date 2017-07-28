@@ -1,5 +1,11 @@
 .graph {
   overflow: hidden;
+
+  #warning {
+    color: $red;
+    font-weight: 900;
+    font-size: 1.5rem;
+  }
   .graph_control {
     text-align: right;
 

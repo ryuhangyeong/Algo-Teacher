@@ -8,6 +8,7 @@ var Graph = {
   adjacency_visible: $('#adjacency_visible'),
   adjacency_clear: $('#adjacency_clear'),
   left_text: $('#left_text'), // 버텍스에 대한 배열 정보
+  warning: $('#warning'), // 에러 문구를 미리 알려준다.
   Graph: [], // 그래프가 담기는 배열
   PositionX: [], // 위치 정보가 담긴다
   PositionY: [], // 위치 정보가 담긴다.
@@ -23,13 +24,21 @@ var Graph = {
         var value = this.adjacency.val();
         var str = '';
         var checking = value.split('\n').length;
-
+        var data = this.adjacency.val();
+        var array = data.split("\n");
+        var count = array.length;
 
         for(var i = 0; i < checking; i++) {
           str += ( i + 1 ) + '\n';
         }
 
         this.left_text.val(str);
+
+
+
+        var com = this.makeMatrix(data, array, count);
+
+        this.warning.html(this.warnAlert(com).message);
       }, 300)
 
       // enter 13
@@ -46,27 +55,7 @@ var Graph = {
       var array = data.split("\n");
       var count = array.length;
 
-      var empty = [];
-
-      for(var i = 0; i < count; i++) {
-				empty[i] = [];
-				for(var j = 0; j < count; j++) {
-					empty[i][j] = 0;
-				}
-			}
-
-      for(var i = 0; i< count; i++) {
-				for(var j = 0; j < count; j++) {
-					var t = array[i][j];
-					if(t != undefined) {
-						empty[i][t-1] = 1;
-					} else {
-						continue;
-					}
-				}
-			}
-
-      this.adjacencyGraph = empty;
+      this.adjacencyGraph = this.makeMatrix(data, array, count);
 
       var canvas = document.getElementById('output_adjacency');
       console.log(this.adjacencyGraph);
@@ -150,6 +139,30 @@ var Graph = {
     })
   },
 
+  makeMatrix: function(data, array, count) {
+    var empty = [];
+
+    for(var i = 0; i < count; i++) {
+      empty[i] = [];
+      for(var j = 0; j < count; j++) {
+        empty[i][j] = 0;
+      }
+    }
+
+    for(var i = 0; i< count; i++) {
+      for(var j = 0; j < count; j++) {
+        var t = array[i][j];
+        if(t != undefined) {
+          empty[i][t-1] = 1;
+        } else {
+          continue;
+        }
+      }
+    }
+
+    return empty;
+  },
+
   getMatrix: function(data) {
     data = data.replace(/\s+/g,''); // 공백 없애기
 			if(Math.sqrt(data.length) % 1 !== 0) {
@@ -184,8 +197,30 @@ var Graph = {
         'status': true
       };
   },
+  warnAlert: function(graph) {
+    for(var i = 0; i < graph.length; i++) {
+       if(graph[i][i] != 0) {
+         return {
+           'error': false,
+           'message': "data[i][i] 번째 데이터는 반드시 0 입니다."
+         }
+       }
 
-   isSimpleGrap: function(Graph) {
+       for(var j = i; j < graph.length; j++) {
+         if(graph[i][j] !== graph[j][i]) {
+           return {
+             'error': false,
+             'message': "대칭되는 부분의 값이 동일해야 합니다!"
+           }
+         }
+       }
+     }
+     return {
+       'error': true,
+       'message': ''
+     };
+  },
+  isSimpleGrap: function(Graph) {
      for(var i = 0; i < Graph.length; i++) {
 				if(Graph[i][i] != 0) {
           swal({
