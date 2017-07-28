@@ -20,7 +20,7 @@
   }
 
   .set_input {
-    width: 20rem;
+    width: 25rem;
     border: none;
     outline: none;
     text-align: center;
@@ -33,10 +33,31 @@
   }
 }
 
+.set_input_full {
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: center;
+  font-size: 2rem;
+  padding: 1.5rem;
+}
+
+.setAlert {
+  color: $black;
+  font-weight: bold;
+}
+.error {
+  color: $red;
+}
+
+.success {
+  color: $btnblue;
+}
+
 .set_visible_box {
   text-align: center;
   overflow: hidden;
-  .left {
+  .set_left {
     float: left;
     font-weight: 900;
     font-size: 5rem;
@@ -48,7 +69,7 @@
     margin-top: 3rem;
   }
 
-  .right {
+  .set_right {
     float: right;
     font-weight: 900;
     font-size: 5rem;

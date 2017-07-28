@@ -48,7 +48,7 @@ import Hashtable from './Hashtable';
 import Chaining from './Chaining';
 import Linear from './Linear';
 import Graph from './Graph';
-import { Setbasic } from './Set';
+import { Setbasic, unionSet } from './Set';
 
 // 사용자 정의 클래스 선언 및 초기화
 /* 모든 페이지에서 사용하는 공통 슬라이드 */
@@ -94,3 +94,11 @@ Linear.event();
 // Matrix
 
 Graph.event();
+
+// set
+Setbasic.init();
+Setbasic.event();
+
+// unionset
+unionSet.init();
+unionSet.event();

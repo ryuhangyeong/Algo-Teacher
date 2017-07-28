@@ -72,25 +72,44 @@
     </div>
     <h2>시각화</h2>
     <div class="content">
-
+      <h2>기본</h2>
       <div class="set">
         <div class="set_control">
-          <input type="text" class="set_input" />
-          <button class="set_create">추가</button>
-          <button class="set_remove">삭제</button>
+          <input type="text" class="set_input"  id="set_input"/>
+          <button class="set_create" id="set_create">추가</button>
+          <button class="set_remove" id="set_remove">삭제</button>
         </div>
-        <h2>기본 집합</h2>
+        <h2 class="setAlert"></h2>
         <div class="set_visible_box">
-          <div class="left">{</div>
-          <div class="set_text">류한경 류한아</div>
-          <div class="right">}</div>
+          <div class="set_left" id="set_left">{</div>
+          <div class="set_text" id="set_text"></div>
+          <div class="set_right" id="set_right">}</div>
         </div>
       </div>
     </div>
+
+    <div class="content">
+      <h2>교집합</h2>
+      <div class="set">
+        <input type="text" class="set_input_full"  id="unionSet_inputA"/>
+        <input type="text" class="set_input_full"  id="unionSet_inputB"/>
+        <div class="set_control">
+          <button class="set_create" id="unionSet_create">추가</button>
+          <button class="set_remove" id="unionSet_clear">초기화</button>
+        </div>
+        <div class="set_visible_box">
+          <div class="set_left">{</div>
+          <div class="set_text" id="unionsSet_text"></div>
+          <div class="set_right">}</div>
+        </div>
+      </div>
+    </div>
+
     <h2>간략한 설명</h2>
     <div class="content">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati sequi accusamus unde, odit amet excepturi vel in sit animi, magnam laudantium doloribus quisquam, quasi molestias! Ratione inventore, quam consectetur in!</p>
     </div>
+
   </div>
   <div id="fixed">+</div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
