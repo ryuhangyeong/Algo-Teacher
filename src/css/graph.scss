@@ -23,9 +23,26 @@
     }
 
   }
+
+  .left_text {
+    float: left;
+    width: 10%;
+    textarea {
+      border: none;
+      resize: none;
+      background-color: $black;
+      color: white;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      font-size: 2rem;
+      height: 500px;
+      padding-top: 3rem;
+      margin-top: 1rem;
+    }
+  }
   .left {
     float: left;
-    width: 30%;
+    width: 20%;
     textarea {
       border: none;
       resize: none;

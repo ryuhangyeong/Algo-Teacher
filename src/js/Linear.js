@@ -1,5 +1,6 @@
 import Randompeople from './Randompeople';
-import { filter, forEach } from 'lodash';
+import filter from 'lodash/filter';
+import forEach from 'lodash/forEach';
 
 var Linear = {
   create: $('#linear_create'),

@@ -7,6 +7,7 @@ var Graph = {
   adjacency: $('#adjacency'),
   adjacency_visible: $('#adjacency_visible'),
   adjacency_clear: $('#adjacency_clear'),
+  left_text: $('#left_text'), // 버텍스에 대한 배열 정보
   Graph: [], // 그래프가 담기는 배열
   PositionX: [], // 위치 정보가 담긴다
   PositionY: [], // 위치 정보가 담긴다.
@@ -16,14 +17,33 @@ var Graph = {
 
   // 이벤트 리스너
   event: function() {
+    // 키보드 이벤트 바인딩
+    this.adjacency.keydown((e) => {
+      setTimeout(() => {
+        var value = this.adjacency.val();
+        var str = '';
+        var checking = value.split('\n').length;
 
+
+        for(var i = 0; i < checking; i++) {
+          str += ( i + 1 ) + '\n';
+        }
+
+        this.left_text.val(str);
+      }, 300)
+
+      // enter 13
+    });
+
+
+    // 클릭 이벤트
     this.adjacency_visible.click(() => {
       this.adjacencyGraph = [];
       this.adjacencyPositionX = [];
       this.adjacencyPositionY = [];
 
       var data = this.adjacency.val();
-      var array = data.split("/");
+      var array = data.split("\n");
       var count = array.length;
 
       var empty = [];
@@ -49,13 +69,33 @@ var Graph = {
       this.adjacencyGraph = empty;
 
       var canvas = document.getElementById('output_adjacency');
-      this.drawGraph(this.adjacencyGraph, canvas, this.adjacencyPositionX, this.adjacencyPositionY);
+      console.log(this.adjacencyGraph);
+
+      if(this.isSimpleGrap(this.adjacencyGraph)) {
+        this.drawGraph(this.adjacencyGraph, canvas, this.adjacencyPositionX, this.adjacencyPositionY);
+        swal({
+          type: "success",
+          title: "성공했어요!",
+          timer: 2000,
+          showConfirmButton: false
+        });
+      }
+
     });
 
     this.adjacency_clear.click(() => {
       var canvas = document.getElementById('output');
+      var adj = adjacency();
       this.clearCanvas(canvas);
-      this.adjacency.val(adjacency());
+      this.adjacency.val(adj.text);
+
+      var str = '';
+
+      for(var i = 0; i < adj.length; i++) {
+        str += (i + 1) +"\n"
+      }
+
+      this.left_text.val(str);
     })
 
     this.visible.click(() => {
@@ -65,11 +105,41 @@ var Graph = {
 			this.PositionY = [];
 
       var data = this.matrix.val();
-      this.Graph = this.getMatrix(data);
-      if(this.isSimpleGrap(this.Graph)) { // 그래프 그리는데 문제가 없다면
-				var canvas = document.getElementById('output');
-				this.drawGraph(this.Graph, canvas, this.PositionX, this.PositionY); // 배열과 그래프
-			}
+
+
+      if(this.getMatrix(data).status == false) {
+          if(this.getMatrix(data).error == 'notarray') {
+            swal({
+              type: "warning",
+              title: "정사각형 배열이 아닙니다.",
+              timer: 3000,
+              showConfirmButton: false
+            });
+          } else {
+            swal({
+              type: "warning",
+              title: "0 또는 1 이외의 숫자는 포함될수 없어요!",
+              timer: 3000,
+              showConfirmButton: false
+            });
+          }
+      } else {
+        this.Graph = this.getMatrix(data).Mtx;
+        if(this.isSimpleGrap(this.Graph)) { // 그래프 그리는데 문제가 없다면
+  				var canvas = document.getElementById('output');
+  				this.drawGraph(this.Graph, canvas, this.PositionX, this.PositionY); // 배열과 그래프
+
+          swal({
+            type: "success",
+            title: "성공했어요!",
+            timer: 2000,
+            showConfirmButton: false
+          });
+  			}
+
+      }
+
+
     });
 
     this.clear.click(() => {
@@ -83,25 +153,20 @@ var Graph = {
   getMatrix: function(data) {
     data = data.replace(/\s+/g,''); // 공백 없애기
 			if(Math.sqrt(data.length) % 1 !== 0) {
-        swal({
-          type: "warning",
-          title: "정사각형 배열이 아닙니다.",
-          timer: 3000,
-          showConfirmButton: false
-        });
-				return false;
+
+				return {
+          'error': 'notarray',
+          'status': false
+        };
 			}
 
 			var pattern = /^[0-1]+$/;
 
 			if(!pattern.test(data)) {
-        swal({
-          type: "warning",
-          title: "0 또는 1 이외의 숫자는 포함될수 없어요!",
-          timer: 3000,
-          showConfirmButton: false
-        });
-				return false;
+				return {
+          'error': 'notnumber',
+          'status': false
+        };
 			}
 
 			var size = Math.sqrt(data.length); // 배열의 길이
@@ -114,11 +179,14 @@ var Graph = {
 				}
 			}
 			// 2차원 배열을 만들어서 반환한다.
-			return Mtx;
+			return {
+        'Mtx': Mtx,
+        'status': true
+      };
   },
 
    isSimpleGrap: function(Graph) {
-     for(var i = 0; i < this.Graph.length; i++) {
+     for(var i = 0; i < Graph.length; i++) {
 				if(Graph[i][i] != 0) {
           swal({
             type: "warning",
@@ -129,7 +197,7 @@ var Graph = {
 					return false;
 				}
 
-				for(var j = i; j < this.Graph.length; j++) {
+				for(var j = i; j < Graph.length; j++) {
 					if(Graph[i][j] !== Graph[j][i]) {
             swal({
               type: "warning",
