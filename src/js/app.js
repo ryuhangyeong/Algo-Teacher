@@ -33,7 +33,9 @@ import '../css/main.scss';
 // 의존하고 있는 HTML 파일들
 import '../queue.html';
 import '../hashtable.html';
-import '../graph.html'
+import '../graph.html';
+import '../set.html';
+
 // 의존하고 있는 3rd 라이브러리 및 프레임워크 모음
 import 'jquery';
 
@@ -46,6 +48,7 @@ import Hashtable from './Hashtable';
 import Chaining from './Chaining';
 import Linear from './Linear';
 import Graph from './Graph';
+import { Setbasic } from './Set';
 
 // 사용자 정의 클래스 선언 및 초기화
 /* 모든 페이지에서 사용하는 공통 슬라이드 */
@@ -54,6 +57,7 @@ var slider = new Slider($('#slider_left'), $('#slider_right'), $('.slider ul'), 
 // 선형 탐색을 섦여하기 위한 슬라이드
 var linearslider = new Slider($('#hashtable_slider_left'), $('#hashtable_slider_right'), $('.hashtable_slider ul'), $('.hashtable_slider li'), 972);
 var graph = new Slider($('#graph_slider_left'), $('#graph_slider_right'), $('.graph_slider ul'), $('.graph_slider li'), 1000);
+var set = new Slider($('#set_slider_left'), $('#set_slider_right'), $('.set_slider ul'), $('.set_slider li'), 1000);
 // var adjacency = new Slider($('#adjacency_slider_left'), $('#adjacency_slider_right'), $('.adjacency_slider ul'), $('.adjacency_slider li'), 1000);
 /* 스크롤 관련 */
 
@@ -64,6 +68,7 @@ scroll.ScrollHeader();
 slider.event();
 linearslider.event();
 graph.event();
+set.event();
 // adjacency.event();
 // fixed 버튼 함수 사용
 fixed.event();

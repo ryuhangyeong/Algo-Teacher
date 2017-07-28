@@ -17,20 +17,20 @@
     <div id="cover">
       <div class="container">
         <div id="infomation">
-          <h1>Queue</h1>
+          <h1>Set</h1>
           <p>
-            큐(queue)는 컴퓨터의 기본적인 자료 구조의 한가지로, 먼저 집어 넣은 데이터가 먼저 나오는 FIFO (First In First Out)구조로 저장하는 형식을 말한다.
+            집합(set)은 어떤 조건이 주어졌을 때, 그 조건이 가리키는 대상이 분명한 것들의 모임을 말한다.
           </p>
           <h1>참고 자료</h1>
           <ul>
-						<li><a href="#">큐 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
-						<li><a href="#">큐 (자료구조) - 나무위키</a></li>
-						<li><a href="#">큐 (자료구조) - 네이버</a></li>
-						<li><a href="#">큐 (자료구조) - 유튜브 검색</a></li>
+						<li><a href="#">집합 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
+						<li><a href="#">집합 (자료구조) - 나무위키</a></li>
+						<li><a href="#">집합 (자료구조) - 네이버</a></li>
+						<li><a href="#">집합 (자료구조) - 유튜브 검색</a></li>
 					</ul>
         </div>
         <div id="image">
-          <img src="img/queue.jpg" alt="queue">
+          <img src="img/set.jpg" alt="queue">
         </div>
       </div>
     </div>
@@ -45,33 +45,23 @@
     <h2>참고자료</h2>
     <div class="content">
       <div class="slider_control">
-        <div class="button left" id="slider_left">
+        <div class="button left" id="set_slider_left">
           <i class="angle left icon"></i>
         </div>
-        <div class="button right" id="slider_right">
+        <div class="button right" id="set_slider_right">
           <i class="angle right icon"></i>
         </div>
       </div>
-      <div class="slider">
+      <div class="set_slider">
         <ul>
           <li>
             <h1>소스코드</h1>
             <textarea class="textarea_box" readonly>
-              function Queue() {
+              function Set() {
                  this.data = [];
               }
 
-              Queue.prototype.enqueue = function(element) {
-                 this.data.push(element);
-              }
 
-              Queue.prototype.dequeue = function() {
-                 return this.data.shift();
-              }
-
-              Queue.prototype.toString = function() {
-                 return this.data;
-              }
             </textarea>
           </li>
           <li>
@@ -82,15 +72,20 @@
     </div>
     <h2>시각화</h2>
     <div class="content">
-      <div class="queue">
-        <div class="queue_control">
-          <input type="text" class="queue_input" />
-          <button class="queue_create">추가</button>
-          <button class="queue_remove">삭제</button>
+
+      <div class="set">
+        <div class="set_control">
+          <input type="text" class="set_input" />
+          <button class="set_create">추가</button>
+          <button class="set_remove">삭제</button>
+        </div>
+        <h2>기본 집합</h2>
+        <div class="set_visible_box">
+          <div class="left">{</div>
+          <div class="set_text">류한경 류한아</div>
+          <div class="right">}</div>
         </div>
       </div>
-      <div class="queue_text"></div>
-      <div class="queue_list"></div>
     </div>
     <h2>간략한 설명</h2>
     <div class="content">

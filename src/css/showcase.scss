@@ -2,7 +2,6 @@
   background-color: $black;
   background-size: cover;
   height: 100vh;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,6 +36,7 @@
     background-color: white;
     border-radius: 1.5rem;
     padding: 2rem;
+    overflow: hidden;
     #infomation {
       float: left;
       width: 66.6666%;
@@ -76,7 +76,10 @@
 
   #more {
     position: absolute;
+
+    width: 100%;
     bottom: 1rem;
+    right: 0;
     font-size: 1.5rem;
     font-weight: 600;
     color: white;
