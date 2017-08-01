@@ -2,33 +2,11 @@
   overflow: hidden;
 
   #warning {
-    color: $red;
+    color: #f03e3e;
     font-weight: 900;
     font-size: 1.5rem;
   }
-  .graph_control {
-    text-align: right;
 
-    button {
-    	display: inline-block;
-    	padding: 1.5rem 2.5rem;
-    	background-color: $btnblue;
-    	color: white;
-    	border-radius: 0.5rem;
-    	transition: all 1s;
-      border: none;
-      cursor: pointer;
-
-      &:hover {
-        opacity: 0.5;
-      }
-    }
-
-    .graph_clear {
-      background-color: $red;
-    }
-
-  }
 
   .left_text {
     float: left;
@@ -36,9 +14,8 @@
     textarea {
       border: none;
       resize: none;
-      background-color: $black;
+      background-color: #212529;
       color: white;
-      border-radius: 0.5rem;
       padding: 1rem;
       font-size: 2rem;
       height: 500px;
@@ -48,13 +25,12 @@
   }
   .left {
     float: left;
-    width: 20%;
+    width: 30%;
     textarea {
       border: none;
       resize: none;
-      background-color: $black;
+      background-color: #212529;
       color: white;
-      border-radius: 0.5rem;
       padding: 1rem;
       font-size: 2rem;
       height: 500px;
@@ -75,8 +51,7 @@
       width: 500px;
       margin-top: 1rem;
       height: 500px;
-      border-radius: 0.5rem;
-      background-color: $black;
+      background-color: #212529;
 
     }
   }
