@@ -1,3 +1,4 @@
+
 header {
   background-image: url('../img/background.jpg');
   background-size: cover;
@@ -22,11 +23,11 @@ header {
     z-index: 9999;
 
 
-
     a {
       font-size: 2rem;
       font-weight: 600;
       cursor: pointer;
+      color: white;
 
       &:hover {
         color: white;
@@ -67,7 +68,7 @@ header {
     }
 
     i {
-      font-size: 2rem;
+      font-size: 4rem;
     }
   }
 }
