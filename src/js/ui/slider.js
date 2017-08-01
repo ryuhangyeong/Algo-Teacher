@@ -8,18 +8,14 @@ class Slider {
       this.currentIndex = 0;
       this.sliderUl.css('width', width * this.sliderCount);
       this.width = width;
-      this.sliderLi.css('width', width)
+      this.sliderLi.css('width', width);
+      this.event();
     }
 
     event() {
       this.leftbutton.click(() => {
         if(this.currentIndex < 1) {
-          swal({
-            type: "warning",
-            title: "첫 페이지",
-            timer: 1000,
-            showConfirmButton: false
-          });
+          Materialize.toast('첫 슬라이드예요!', 1000, 'rounded')
           return;
         } else {
           this.currentIndex--;
@@ -31,12 +27,7 @@ class Slider {
 
       this.rightbutton.click(() => {
         if(this.currentIndex == this.sliderCount - 1) {
-          swal({
-            type: "warning",
-            title: "마지막 페이지",
-            timer: 1000,
-            showConfirmButton: false
-          });
+          Materialize.toast('마지막 슬라이드예요!', 1000, 'rounded')
           return;
         } else {
           this.currentIndex++;

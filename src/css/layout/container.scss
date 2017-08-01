@@ -1,9 +1,9 @@
-/* container */
 
 .container {
-  width: 1000px; margin: 0 auto;
+  width: 1000px;
+  margin: 0 auto;
   overflow: hidden;
-  .row {
+
     .card {
       float: left;
       width: 31.3333%;
@@ -15,21 +15,66 @@
       transition: all .5s;
       color: black;
       text-align: center;
-
+      cursor: pointer;
       &:hover {
         transform: translateY(0.7rem);
       }
 
+      a {
+        color: black;
+      }
       .card_title {
         h1 {
           font-size: 3rem;
           margin-bottom: 3rem;
         }
       }
-    }
+
   }
 
-  h2 {
-    margin: 2rem 0;
+  // 컨테이너 내부 공헌자 리스트
+  .contribution {
+    overflow: hidden;
+    background: white;
+    margin-top: 5rem;
+    .card {
+      cursor: pointer;
+      &:hover {
+        transform: translateY(-0.3rem);
+      }
+
+      .plus {
+        line-height: 30rem;
+        color: black;
+        i {
+          font-size: 5rem;
+          color: black;
+        }
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    .contribution_name {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .contribution_call {
+      margin-top: 2rem;
+
+      a {
+        color: black;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+
+      i {
+        font-size: 5rem;
+      }
+    }
   }
 }

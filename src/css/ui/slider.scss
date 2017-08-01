@@ -1,0 +1,75 @@
+.slider {
+  overflow: hidden;
+  height: 500px;
+
+  &.subscribe {
+    width: 100%;
+  	background: linear-gradient(0deg, #21abc7, #616db3);
+   	box-shadow: 0.1px 0.1px 0px #555;
+   	height: 500px;
+   	cursor: pointer;
+   	border: 1px solid #fff;
+   	color: #fff;
+  	box-sizing: border-box;
+    padding: 1rem;
+    margin-top: 1rem;
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  ul {
+    position: relative;
+    right: 0;
+
+    li {
+      float: left;
+      width: 1000px;
+
+      h1 {
+        margin: 1.5rem 0;
+      }
+    }
+  }
+
+  .textarea_box {
+  	width: 100%;
+  	background-color:#212529;
+   	box-shadow: 0.1px 0.1px 0px #555;
+   	height: 400px;
+   	cursor: pointer;
+   	border: 1px solid #fff;
+   	color: #fff;
+  	box-sizing: border-box;
+  }
+}
+
+.slider_control {
+  overflow: hidden;
+
+  .button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: #1c7cd6;;
+    color: white;
+    transition: all 0.5s;
+    border-radius: 4px;
+    cursor: pointer;
+
+    i {
+      font-size: 2rem;
+    }
+    &:hover {
+      background-color: #329af0;
+    }
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+}

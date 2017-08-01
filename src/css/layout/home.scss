@@ -1,0 +1,210 @@
+// index 페이지의 소개 페이지 부분
+
+.home {
+  background-size: cover;
+  background: linear-gradient(0deg, #21abc7, #616db3);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  //  헤더부분
+  header {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    line-height: 4rem;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0.2px 0.2px 5px #555;
+
+    // 로고
+    .logo {
+      float: left;
+      font-weight: bold;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #343a40;
+    }
+
+    // 헤더 오른쪽 링크 및 도움말
+    .menu {
+      float: right;
+      display: inline-block;
+
+      .menu_info {
+        background-color: #1c7cd6;
+        padding: .6rem 1.5rem;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #329af0;
+        }
+      }
+
+      .menu_maker {
+        background-color: white;
+        padding: .575rem 1.5rem;
+        color: #1c7cd6;
+        border: 1px solid #1c7cd6;
+        cursor: pointer;
+
+        &:hover {
+          color: #329af0;
+          border: 1px solid #329af0;
+        }
+      }
+    }
+  }
+
+  .showcase {
+    border-radius: 1.5rem;
+    padding: 2rem;
+    overflow: hidden;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+
+    .showcase_infomation {
+      float: left;
+      width: 70%;
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      p {
+        margin: 2rem 0;
+      }
+
+      ul {
+
+        list-style: none;
+
+        li {
+          margin-top: 0.5rem;
+        }
+      }
+    }
+
+    .showcase_image {
+      float: right;
+      margin-top: 6rem;
+    }
+  }
+
+  // 정중앙 소개 부분
+  .introduce {
+    // 주요 타이틀
+    text-align: center;
+    .introduce_text {
+      color: white;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    // 서브 타이틀
+    .introduce_sub_text {
+      margin-top: 0.5rem;
+      text-align: center;
+      color: #dee2e6;
+      font-size: 1.2rem;
+    }
+
+    // 소개 페이지 내부 박스 모음
+    .box_list {
+      // text-align: center;
+      margin-top: 3rem;
+      overflow: hidden;
+      // free에 대한 박스
+      text-align: center;
+      font-weight: bold;
+
+      .box {
+        background-color: white;
+        border-radius: 1rem;
+
+      }
+      // free에 대한 박스
+      .free {
+        float: left;
+        padding: 6rem;
+        margin-top: 3rem;
+
+        .free_text {
+          font-size: 3rem;
+        }
+        .free_price {
+          font-size: 5rem;
+        }
+      }
+
+      // visible에 대한 박스
+      .visible {
+        float: right;
+        padding: 10rem 5rem;
+
+        .visible_text {
+          font-size: 2rem;
+        }
+
+        .visible_sub_text {
+          margin-top: 3rem;
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+
+
+    .contribution_button {
+      background-color: #fff;
+      margin-top: 2rem;
+      padding: 1.6rem 5rem;
+      border-radius: 0.5rem;
+      display: inline-block;
+      cursor: pointer;
+      transition: all 0.2s;
+      a {
+        color: #009fda;
+      }
+
+      &:hover {
+        transform: translateY(-1rem);
+      }
+    }
+  }
+
+  // 더보기 기능
+  .more {
+    position: absolute;
+    bottom: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.7s;
+
+    a {
+      display: block;
+    }
+
+    p {
+      color: white;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    i {
+      font-size: 3rem;
+      color: white;
+    }
+
+    &:hover {
+      transform: translateY(-1rem);
+      color: #dee2e6;
+    }
+  }
+}

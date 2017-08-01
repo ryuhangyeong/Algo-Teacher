@@ -1,3 +1,6 @@
+
+// 글꼴 및 초기 설정
+
 @import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
 
 body {
@@ -10,4 +13,10 @@ body {
 
 *, *:after, *:before {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
 }

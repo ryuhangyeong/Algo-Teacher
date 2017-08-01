@@ -1,19 +1,44 @@
-/* global */
-@import "./all/colors";
-@import "./all/global";
+// /* 색상 */
+// @import "colors";
+// /* global */
+// @import "global";
+// /* header */
+// @import "header";
+// /* container */
+// @import "container";
+// /* showcase */
+// @import "showcase";
+// /* fixed button */
+// @import "fixed";
+// /* 컨텐츠가 담기는 content */
+// @import "content";
+// /* slider */
+// @import "slider";
+// /* 소스코드 박스 */
+// @import "textarea_box";
+// /* queue와 관련된 스타일 */
+// @import "queue";
+// /* fixed 버튼의 help */
+// @import "help";
+// /* hashtable */
+// @import "hashtable";
+// /* chaining */
+// @import "chaining";
+// /* graph */
+// @import "graph";
+//
+// /* set */
+// @import "set";
 
-/* layout */
-@import "./layout/header";
+@import "./all/basic";
+
+@import "./layout/home";
 @import "./layout/container";
-@import "./layout/showcase";
 @import "./layout/content";
-@import "./layout/fixed";
-@import "./layout/help";
-@import "./layout/slider";
 
-/* modules */
+@import "./ui/slider";
+@import "./ui/visible";
+
 @import "./modules/queue";
 @import "./modules/hashtable";
 @import "./modules/chaining";
-@import "./modules/graph";
-@import "./modules/set";

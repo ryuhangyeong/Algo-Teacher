@@ -1,14 +1,13 @@
-import Randompeople from './Randompeople';
+import Randompeople from '../data/Randompeople';
 import filter from 'lodash/filter';
 import forEach from 'lodash/forEach';
 
-var Hashtable = {
-  create: $('#hashtable_create'),
-  remove: $('#hashtable_remove'),
-  inputname: $('#hashtable_input_name'),
-  inputemail: $('#hashtable_input_email'),
-  hashtablediv: $('#hashtable_table'),
-  hashtabletable: $('#hashtable_table table'),
+var Linearsearch = {
+  create: $('#linear_create'),
+  inputname: $('#linear_input_name'),
+  inputemail: $('#linear_input_email'),
+  hashtablediv: $('#linear_table'),
+  hashtabletable: $('#linear_table table'),
   table: [],
 
   init: function() {
@@ -18,6 +17,7 @@ var Hashtable = {
     this.put('김혜지', '김혜지@gmail.com');
     this.rendering('basic'); // 초기 기본 랜더링
     this.randomInput(); // 인풋 랜덤 값 삽입
+    this.event();
   },
 
   event: function() {
@@ -27,36 +27,24 @@ var Hashtable = {
 
       // 인풋 유효성 검사
       if(name == '' || email == '') {
-        swal({
-          type: "warning",
-          title: "요소를 입력하세요.",
-          timer: 1000,
-          showConfirmButton: false
-        });
+        Materialize.toast('요소는 필수 입력이예요!', 3000, 'rounded');
+        this.inputname.focus();
         return;
       }
 
-      // 갯수가 0이 아니면 이미 데이터가 존재한다는 말이다.
-      if(this.findPosition(this.loseloseHashCode(name)) != 0) {
-        // 충돌 사실을 사용자에게 알려준다. 그리고, 충돌 방지법에 대해 알려주도록 한다.
-        swal({
-          title: "충돌 발생!",
-          text: "<p>이름이 다르더라도 해시 값이 같으면 충돌이 일어나요!</p><p><b>충돌을 방지하는 선형 탐색과 체이닝에 대해 아래에서 알아보세요!</b></p>",
-          html: true,
-          timer: 3000,
-          showConfirmButton: false
-        });
+      if(this.findName(name).length > 0) { // 이미 존재하고 있는 이름이 있다면
+
+        Materialize.toast('이미 존재하는 이름이거나 해시 값이 동일합니다.', 3000, 'rounded');
+
         this.rendering('crash', this.findPosition(this.loseloseHashCode(name))[0].key);
 
         // 충돌된 인풋 박스 스타일링
         this.inputname.css({
-          'background-color': '#f03e3e',
-          'color': 'white',
+          'color': '#f03e3e',
           'font-weight': 'bold'
         });
         this.inputemail.css({
-          'background-color': '#f03e3e',
-          'color': 'white',
+          'color': '#f03e3e',
           'font-weight': 'bold'
         });
 
@@ -65,72 +53,72 @@ var Hashtable = {
           // 4초 지난후 스타일링 복구
           this.randomInput();
           this.inputname.css({
-            'background-color': 'white',
             'color': 'black',
             'font-weight': 'none'
           });
           this.inputemail.css({
-            'background-color': 'white',
             'color': 'black',
             'font-weight': 'none'
           });
-        }, 4000)
+        }, 4000);
         return;
-      } else {
-
+      } else { // 존재하지 않는 이름이라면
         // 정상 추가 로직
-        swal({
-          type: "success",
-          title: "정상 추가되었어요!",
-          timer: 2000,
-          showConfirmButton: false
-        });
-        // 데이터 상자에 데이터 삽입
-        this.put(name, email);
-        setTimeout(() => {
-          this.randomInput();
-        }, 3000);
+        if(this.findPosition(this.loseloseHashCode(name)) != 0) { // 키 값이 같다면
+            Materialize.toast('해시 값이 동일하여 선행 탐색 방법으로 자신의 자리를 탐색해나갑니다.', 3000, 'rounded');
 
-        this.rendering('mark', this.findPosition(this.loseloseHashCode(name))[0].key);
-        return;
-      }
-    })
+            var position = this.loseloseHashCode(name);
+            var index = position++;
+            while(this.table[index] != undefined) {
+              index++;
+            }
 
-    this.remove.click(() =>{
-      swal({
-        title: "삭제",
-        text: "이름에 해당하는 해시 값을 삭제해요!",
-        type: "input",
-        showCancelButton: true,
-        closeOnConfirm: false,
-        animation: "slide-from-top",
-        inputPlaceholder: "이름을 입력하세요"
-      }, (inputValue) => {
-        if(inputValue === false) return false;
-        if(inputValue === "") {
-          swal.showInputError("이름은 필수입력입니다!");
-          return false;
-        }
+            var infomation = {
+              type: 'linear',
+              index: index
+            }
 
-        if(this.findkey(inputValue).length == 0) {
-          swal.showInputError("존재하지 않아 삭제 할 수 없습니다.");
-          return false;
+            // 충돌된 인풋 박스 스타일링
+            this.inputname.css({
+              'color': '#f03e3e',
+              'font-weight': 'bold'
+            });
+            this.inputemail.css({
+              'color': '#f03e3e',
+              'font-weight': 'bold'
+            });
+
+
+            setTimeout(() => {
+              // 4초 지난후 스타일링 복구
+              this.randomInput();
+              this.inputname.css({
+                'color': 'black',
+                'font-weight': 'none'
+              });
+              this.inputemail.css({
+                'color': 'black',
+                'font-weight': 'none'
+              });
+            }, 4000);
+            
+            this.linearput(name, email, infomation);
+            this.rendering('crash', this.findName(name)[0].key);
+            setTimeout(() => {
+              this.randomInput();
+            }, 2000);
         } else {
-          swal({
-            type: "success",
-            title: "정상 삭제되었어요!",
-            timer: 2000,
-            showConfirmButton: false
-          });
-          this.rendering('crash', this.findPosition(this.loseloseHashCode(inputValue))[0].key);
+          Materialize.toast('정상 추가되었어요!', 3000, 'rounded');
+          // 데이터 상자에 데이터 삽입
+          this.put(name, email);
           setTimeout(() => {
-            this.delete(inputValue);
-            this.rendering('basic');
-          }, 2000)
+            this.randomInput();
+          }, 2000);
+
+          this.rendering('mark', this.findPosition(this.loseloseHashCode(name))[0].key);
           return;
         }
-
-      })
+      }
     })
   },
 
@@ -199,30 +187,37 @@ var Hashtable = {
       value: value
     };
   },
-  findkey: function(key) {
-    var find = filter(this.table, (item) => {
-      return item !== undefined;
-    }).filter((item) => {
-      return item.key == key;
-    })
 
-    return find;
-  },
-  delete: function(key) {
-    delete this.table[this.loseloseHashCode(key)];
+  linearput: function(key, value, infomation) {
+    this.table[infomation.index] = {
+      position: infomation.index,
+      key: key,
+      value: value
+    };
   },
   // search function
 
   /* 이미 데이터 안에 존재하는 유저가 있는지 확인하는 함수 */
   findPosition: function(position) {
-    var alreay = filter(this.table, (item) => {
+    var already = filter(this.table, (item) => {
       return item !== undefined;
     }).filter((item) => {
       return item.position == position;
     });
 
-    return alreay;
+    return already;
+  },
+
+  findName: function(name) {
+    var already = filter(this.table, (item) => {
+      return item !== undefined;
+    }).filter((item) => {
+      return item.key == name;
+    });
+
+    return already;
+
   }
 }
 
-export default Hashtable;
+export default Linearsearch;

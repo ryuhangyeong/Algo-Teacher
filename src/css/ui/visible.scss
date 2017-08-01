@@ -1,0 +1,38 @@
+.visible {
+  .visible_control {
+    text-align: right;
+
+    button {
+    	display: inline-block;
+    	padding: 1rem 2rem;
+    	background-color: #1c7cd6;
+    	color: white;
+    	border-radius: 0.5rem;
+    	transition: all 1s;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &.remove {
+        background-color: #f03e3e;
+      }
+    }
+
+    .visible_input {
+      border: none;
+      outline: none;
+      font-size: 2rem;
+      text-align: center;
+
+
+    }
+
+    input[type=text]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+    }
+  }
+}

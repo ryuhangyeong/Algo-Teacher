@@ -1,64 +1,40 @@
-/* queue 시각화 구현을 위한 스타일 모음 */
+.queue {
 
+  .queue_text {
+  	position: absolute;
+  	left: 1000px;
+  	width: 100px;
+  	height: 200px;
+  	text-align: center;
+  	line-height: 200px;
+  	font-size: 10px;
+  	border-radius: 10px;
+  	margin: 20px;
 
-.queue_control {
-  text-align: right;
-
-  button {
-  	display: inline-block;
-  	padding: 1.5rem 2.5rem;
-  	background-color: $btnblue;
-  	color: white;
-  	border-radius: 0.5rem;
-  	transition: all 1s;
-    border: none;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 0.5;
-    }
   }
 
-  .queue_input {
-    width: 20rem;
-    border: none;
-    outline: none;
+  .queue_list {
     text-align: center;
-    font-size: 2rem;
-    padding: 1.5rem;
+
+    .movebox {
+    	width: 40px;
+    	height: 200px;
+    	display: inline-block;
+    	background-color: #1c7cd6;
+    	line-height: 200px;
+    	text-align: center;
+    	color: #fff;
+    	position: relative;
+    	margin: 20px;
+    	border-radius: 10px;
+      cursor: pointer;
+      &:hover {
+        background-color: #329af0;
+      }
+    }
+
   }
 
-  .queue_remove {
-    background-color: $red;
-  }
-}
 
-.queue_list { text-align: center; }
-.queue_text {
-	position: absolute;
-	left: 1000px;
-	width: 100px;
-	height: 200px;
-	text-align: center;
-	line-height: 200px;
-	font-size: 10px;
-	border-radius: 10px;
-	margin: 20px;
-}
-.movebox {
-	width: 40px;
-	height: 200px;
-	display: inline-block;
-	background-color: #4B9BE1;
-	line-height: 200px;
-	text-align: center;
-	color: #fff;
-	position: relative;
-	margin: 20px;
-	border-radius: 10px;
-}
 
-.movebox:hover {
-	opacity: 0.7;
-	transform: scale(1.1);
 }

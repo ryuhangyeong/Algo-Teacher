@@ -2,9 +2,9 @@ import forEach from 'lodash/forEach';
 
 var Queue = {
   /* variable */
-  create: $('.queue_create'),
-  remove: $('.queue_remove'),
-  input: $('.queue_input'),
+  create: $('#queue_create'),
+  remove: $('#queue_remove'),
+  input: $('#queue_input'),
   list: $('.queue_list'),
   text: $('.queue_text'),
   data: [],
@@ -14,6 +14,7 @@ var Queue = {
     this.enqueue(100); // 데이터 추가
     this.rendering(); // 데이터 랜더링
     this.randomInput(); // 인풋박스 랜덤 값 설정
+    this.event();
   },
 
   /* queue function */
@@ -37,12 +38,7 @@ var Queue = {
       // 이벤트 중복 방지
       this.create.attr('disabled', true);
       if(this.count() > 8) {
-        swal({
-          type: "warning",
-          title: "더 이상 추가할 수 없어요!",
-          timer: 1000,
-          showConfirmButton: false
-        });
+        Materialize.toast('더 이상 추가할 수 없어요!', 1000, 'rounded')
         this.disabled(this.create, false);
         return;
       }
@@ -52,7 +48,7 @@ var Queue = {
       this.text.css({
         'left': '1200px',
         'font-size': '50px',
-        'background-color': '#4B9BE1',
+        'background-color': '#1c7cd6',
         'color': '#fff'
       });
 
@@ -88,12 +84,8 @@ var Queue = {
     this.remove.click(() => {
 
       if(this.count() == 1) {
-        swal({
-          type: "warning",
-          title: "삭제할 요소가 없어요!",
-          timer: 1000,
-          showConfirmButton: false
-        });
+
+        Materialize.toast('더 이상 삭제할 수 없어요!', 1000, 'rounded')
         this.disabled(this.create, false);
         return;
       }

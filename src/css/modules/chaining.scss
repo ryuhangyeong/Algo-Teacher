@@ -4,7 +4,7 @@
     width: 5rem;
     height: 5rem;
     border-radius: 5rem;
-    background-color: $black;
+    background-color: #212529;
     text-align: center;
     line-height: 5rem;
     color: white;
@@ -13,7 +13,7 @@
   .link {
     width: 5rem;
     height: 0.5rem;
-    background-color: $black;
+    background-color: #212529;
     display: inline-block;
     position: relative;
     left: -0.1rem;
@@ -29,7 +29,7 @@
   .hashname {
     position: absolute;
     top: -1.3rem;
-    background-color: $black;
+    background-color: #212529;
     width: 4rem;
     height: 2rem;
     color: #fff;
@@ -38,9 +38,8 @@
   }
 
   .hashemail {
-    // display: none;
     position: absolute;
-    top: -4rem;
+    top: -5rem;
     width: 5rem;
   }
 
@@ -51,7 +50,7 @@
     height: 3rem;
     width: 3rem;
     border-radius: 2rem;
-    background-color: $red;
+    background-color: #f03e3e;
     position: relative;
     text-align: center;
     line-height: 3rem;

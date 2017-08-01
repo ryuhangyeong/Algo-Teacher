@@ -1,4 +1,4 @@
-import Randompeople from './Randompeople';
+import Randompeople from '../data/Randompeople';
 
 var Chaining = {
   create: $('#chaining_create'),
@@ -50,6 +50,7 @@ var Chaining = {
   init: function() {
     this.rendering();
     this.randomInput();
+    this.event();
   },
 
   // 이벤트 함수
@@ -60,12 +61,8 @@ var Chaining = {
       var email = this.inputemail.val();
       // 인풋 유효성 검사
       if(name == '' || email == '') {
-        swal({
-          type: "warning",
-          title: "요소를 입력하세요.",
-          timer: 1000,
-          showConfirmButton: false
-        });
+        Materialize.toast('요소는 필수 입력이예요!', 3000, 'rounded');
+        this.inputname.focus();
         return;
       }
       // 인풋 박스 초기화
@@ -104,14 +101,7 @@ var Chaining = {
 
         if(bol) { // 해당 해시값이 있고, 해시값안에 배열에 이름도 존재한다.
 
-          swal({
-            type: "warning",
-            title: "충돌 발생!",
-            text: "<h1>"+ name +"</h1><h2>이미 존재하는 이름입니다.</h2>",
-            html: true,
-            timer: 3000,
-            showConfirmButton: false
-          });
+          Materialize.toast('이미 존재하는 이름입니다!', 3000, 'rounded');
           this.renderingCreate(loseloseHashCode, name, 'alreay');
           return;
         } else {
@@ -119,12 +109,7 @@ var Chaining = {
             name: name,
             email: email
           });
-          swal({
-            type: "success",
-            title: "정상적으로 추가되었어요!",
-            timer: 2000,
-            showConfirmButton: false
-          });
+          Materialize.toast('연결리스트에 정상 추가되었어요!', 3000, 'rounded');
           this.renderingCreate(loseloseHashCode, name)
 
         }
@@ -139,12 +124,7 @@ var Chaining = {
           }]
         })
 
-        swal({
-          type: "success",
-          title: "정상적으로 추가되었어요!",
-          timer: 2000,
-          showConfirmButton: false
-        });
+        Materialize.toast('정상 추가되었어요!', 3000, 'rounded');
 
         this.renderingCreate(loseloseHashCode, name)
       }

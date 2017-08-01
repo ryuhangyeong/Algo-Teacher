@@ -15,16 +15,6 @@ var scroll = {
         }
       }
     });
-  },
-  ScrollHeader: () => {
-    // 스크롤 높이를 계산하여 특정 높이 이상일 경우 스타일 클래스 추가하는 함수
-    $(window).scroll(function() {
-      if($(document).scrollTop() > 10) {
-        $('#logo').addClass('shrink');
-      } else {
-        $('#logo').removeClass('shrink');
-      }
-    })
   }
 }
 
