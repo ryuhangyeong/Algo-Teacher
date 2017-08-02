@@ -1,9 +1,9 @@
-
+// 중앙 정렬용 컨테이너
 .container {
   width: 1000px;
   margin: 0 auto;
   overflow: hidden;
-
+    // 3 칼럼 카드 레이아웃 구현
     .card {
       float: left;
       width: 31.3333%;
@@ -43,7 +43,7 @@
         transform: translateY(-0.3rem);
       }
 
-      .plus {
+      .group {
         line-height: 30rem;
         color: black;
         i {
@@ -55,7 +55,7 @@
         }
       }
     }
-
+    // 공헌자 이름
     .contribution_name {
       font-size: 1.5rem;
       font-weight: bold;
@@ -63,17 +63,19 @@
 
     .contribution_call {
       margin-top: 2rem;
-
-      a {
-        color: black;
+      // 공헌자 리스트 모음
+      .contribution_call_list {
+        box-shadow: 0.2px 0.2px 5px #555;
+        padding: 1rem;
+        margin-top: 1rem;
 
         &:hover {
           opacity: 0.7;
         }
-      }
 
-      i {
-        font-size: 5rem;
+        i {
+          font-size: 3rem;
+        }
       }
     }
   }

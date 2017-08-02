@@ -1,7 +1,7 @@
 /*
   집합 구현체
 */
-import { setData, setArray } from './setData';
+import { setData, setArray } from '../data/setData';
 import forEach from 'lodash/forEach';
 import filter from 'lodash/filter';
 
@@ -23,6 +23,7 @@ var Setbasic = {
     this.add('수지');
     // 데이터 화면 랜더링
     this.rendering('basic');
+    this.event();
   },
 
   event: function() {
@@ -52,7 +53,7 @@ var Setbasic = {
       var inputdata = this.set_input.val();
       if(this.add(inputdata)) {
         this.rendering('create', inputdata);
-        this.setAlert.addClass('success').html('정상 추가!');
+        this.setAlert.addClass('success').html(''+ inputdata +' 추가!');
         this.inputvalue();
       } else {
         this.setAlert.addClass('error').removeClass('success').html('중복!');
@@ -155,6 +156,7 @@ var intersectionSet = {
 
   init: function() {
     this.inputvalue();
+    this.event();
   },
 
   event: function() {
@@ -185,14 +187,16 @@ var intersectionSet = {
           var str = '';
           forEach(newArray, (item, index) => {
             if(index + 1  < newArray.length) {
-              str += "<span>"+item+"</span>"+",";
+              str += "<span style='color:#1c7cd6; font-weight: bold;'>"+item+"</span>"+",";
             } else {
-              str += "<span>"+item+"</span>";
+              str += "<span style='color:#1c7cd6; font-weight: bold;'>"+item+"</span>";
             }
           });
-
+          Materialize.toast('교집합 찾았어요!', 3000, 'rounded')
           this.intersectionSet_text.html(str);
-
+          setTimeout(() => {
+            this.inputvalue();
+          }, 1000)
         } else {
           this.intersectionSet_text.html("<span style='color:#f03e3e; font-weight: bold; font-size: 2rem;'>교집합이 존재하지 않아요!</span>");
           setTimeout(() => {
@@ -227,6 +231,7 @@ var unionSet = {
 
   init: function() {
     this.inputvalue();
+    this.event();
   },
 
   event: function() {
@@ -255,36 +260,18 @@ var unionSet = {
             newArray.push(short[j])
           }
         }
-
-
         var str = '';
         forEach(newArray, (item, index) => {
           if(index + 1  < newArray.length) {
-            str += "<span>"+item+"</span>"+",";
+            str += "<span style='color:#1c7cd6; font-weight: bold;'>"+item+"</span>"+",";
           } else {
-            str += "<span>"+item+"</span>";
+            str += "<span style='color:#1c7cd6; font-weight: bold;'>"+item+"</span>";
           }
         });
 
-        // 교집합이 존재한다면
-        if(newArray.length != 0) {
-          var str = '';
-          forEach(newArray, (item, index) => {
-            if(index + 1  < newArray.length) {
-              str += "<span>"+item+"</span>"+",";
-            } else {
-              str += "<span>"+item+"</span>";
-            }
-          });
+        this.unionsSet_text.html(str);
+        Materialize.toast('합집합 만들었어요!', 3000, 'rounded')
 
-          this.unionsSet_text.html(str);
-
-        } else {
-          this.unionsSet_text.html("<span style='color:#f03e3e; font-weight: bold; font-size: 2rem;'>교집합이 존재하지 않아요!</span>");
-          setTimeout(() => {
-            this.inputvalue();
-          }, 2000)
-        }
 
       });
 

@@ -1,45 +1,20 @@
-// /* 색상 */
-// @import "colors";
-// /* global */
-// @import "global";
-// /* header */
-// @import "header";
-// /* container */
-// @import "container";
-// /* showcase */
-// @import "showcase";
-// /* fixed button */
-// @import "fixed";
-// /* 컨텐츠가 담기는 content */
-// @import "content";
-// /* slider */
-// @import "slider";
-// /* 소스코드 박스 */
-// @import "textarea_box";
-// /* queue와 관련된 스타일 */
-// @import "queue";
-// /* fixed 버튼의 help */
-// @import "help";
-// /* hashtable */
-// @import "hashtable";
-// /* chaining */
-// @import "chaining";
-// /* graph */
-// @import "graph";
-//
-// /* set */
-// @import "set";
+// 스타일 시트 시작점 entry
 
+// 웹 애플리케이션 초기 설정
 @import "./all/basic";
 
+// 레이아웃과 관련된 스타일 시트
 @import "./layout/home";
 @import "./layout/container";
 @import "./layout/content";
 
+// ui와 관련된 스타일 시트
 @import "./ui/slider";
 @import "./ui/visible";
 
+// 각 modules에 적용된 스타일 시트
 @import "./modules/queue";
 @import "./modules/hashtable";
 @import "./modules/chaining";
 @import "./modules/graph";
+@import "./modules/set";

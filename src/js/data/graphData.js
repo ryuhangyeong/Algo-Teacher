@@ -1,3 +1,5 @@
+// graph 데이터 모음 및 데이터 반환
+
 function matrix() {
   var list = [
     {

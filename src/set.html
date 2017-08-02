@@ -4,133 +4,160 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-  <title>Teacher</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Algo Teacher</title>
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <div class="showcase">
-    <div id="logo">
-      <a href="index.html">TEACHER</a>
-    </div>
-    <div id="cover">
+
+  <div class="home">
+    <header>
       <div class="container">
-        <div id="infomation">
+        <a class="logo" href="index.html">ALGO Teacher</a>
+        <div class="menu">
+
+          <a href="index.html"><span class="menu_info">다른 모듈로</span></a>
+          <a href="contribution.html"><span class="menu_maker">만든이 / 공헌하기</span></a>
+        </div>
+      </div>
+    </header>
+    <div class="showcase">
+      <div class="container">
+        <div class="showcase_infomation">
           <h1>Set</h1>
           <p>
-            집합(set)은 어떤 조건이 주어졌을 때, 그 조건이 가리키는 대상이 분명한 것들의 모임을 말한다.
+            수학에서 집합(集合, set)은 어떤 조건이 주어졌을 때, 그 조건이 가리키는 대상이 분명한 것들의 모임을 말한다. 집합을 다루는 이론을 집합론이라고 한다.
           </p>
           <h1>참고 자료</h1>
           <ul>
-						<li><a href="#">집합 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
-						<li><a href="#">집합 (자료구조) - 나무위키</a></li>
-						<li><a href="#">집합 (자료구조) - 네이버</a></li>
-						<li><a href="#">집합 (자료구조) - 유튜브 검색</a></li>
-					</ul>
+            <li><a href="#">큐 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
+            <li><a href="#">큐 (자료구조) - 나무위키</a></li>
+            <li><a href="#">큐 (자료구조) - 네이버</a></li>
+            <li><a href="#">큐 (자료구조) - 유튜브 검색</a></li>
+          </ul>
         </div>
-        <div id="image">
-          <img src="img/set.jpg" alt="queue">
+        <div class="showcase_image">
+          <img src="img/queue.jpg" alt="queue">
         </div>
       </div>
     </div>
-    <a href="#modules">
-      <div id="more">
-          <p>자세히 알아보기</p>
-          <i class="angle double down icon"></i>
-      </div>
-    </a>
+
+    <div class="more">
+      <a href="#module">
+        <p>자세히 알아보기</p>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </a>
+    </div>
   </div>
-  <div class="container" id="modules">
-    <h2>참고자료</h2>
-    <div class="content">
-      <div class="slider_control">
-        <div class="button left" id="set_slider_left">
-          <i class="angle left icon"></i>
+  <div class="container" id="module" style="margin-top: 4rem;">
+      <div class="content">
+        <div class="slider_control">
+          <div class="button left" id="slider_left">
+            <i class="material-icons">chevron_left</i>
+          </div>
+          <div class="button right" id="slider_right">
+            <i class="material-icons">chevron_right</i>
+          </div>
         </div>
-        <div class="button right" id="set_slider_right">
-          <i class="angle right icon"></i>
+
+        <div class="slider" id="slider">
+          <ul>
+            <li>
+              <h1>소스코드</h1>
+              <textarea class="textarea_box" readonly>
+
+                function Queue() {
+                   this.data = [];
+                }
+
+                Queue.prototype.enqueue = function(element) {
+                   this.data.push(element);
+                }
+
+                Queue.prototype.dequeue = function() {
+                   return this.data.shift();
+                }
+
+                Queue.prototype.toString = function() {
+                   return this.data;
+                }
+              </textarea>
+            </li>
+            <li>
+              <h1>도움 영상</h1>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="set_slider">
-        <ul>
-          <li>
-            <h1>소스코드</h1>
-            <textarea class="textarea_box" readonly>
-              function Set() {
-                 this.data = [];
-              }
-
-
-            </textarea>
-          </li>
-          <li>
-            <h1>도움이 되는 영상</h1>
-          </li>
-        </ul>
+      <!-- 기본 -->
+      <div class="content">
+        <h1>기본 집합</h1>
       </div>
-    </div>
-    <h2>시각화</h2>
-    <div class="content">
-      <h2>기본</h2>
-      <div class="set">
-        <div class="set_control">
-          <input type="text" class="set_input"  id="set_input"/>
-          <button class="set_create" id="set_create">추가</button>
-          <button class="set_remove" id="set_remove">삭제</button>
-        </div>
-        <h2 class="setAlert" id="setAlert"></h2>
-        <div class="set_visible_box">
-          <div class="set_left" id="set_left">{</div>
-          <div class="set_text" id="set_text"></div>
-          <div class="set_right" id="set_right">}</div>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input"  id="set_input"/>
+            <button id="set_create" >추가</button>
+            <button class="remove" id="set_remove">삭제</button>
+          </div>
+          <h2 class="setAlert" id="setAlert"></h2>
+          <div class="set_visible_box">
+            <div class="set_left">{</div>
+            <div class="set_text" id="set_text"></div>
+            <div class="set_right">}</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="content">
-      <h2>교집합</h2>
-      <div class="set">
-        <input type="text" class="set_input_full"  id="intersectionSet_inputA"/>
-        <input type="text" class="set_input_full"  id="intersectionSet_inputB"/>
-        <div class="set_control">
-          <button class="set_create" id="intersectionSet_create">추가</button>
-          <button class="set_remove" id="intersectionSet_clear">초기화</button>
-        </div>
-        <div class="set_visible_box">
-          <div class="set_left">{</div>
-          <div class="set_text" id="intersectionSet_text"></div>
-          <div class="set_right">}</div>
+      <!-- 교집합 -->
+      <div class="content">
+        <h1>교집합</h1>
+      </div>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input"  id="intersectionSet_inputA"/>
+            <input type="text" class="visible_input"  id="intersectionSet_inputB"/>
+            <button id="intersectionSet_create" >추가</button>
+            <button class="remove" id="intersectionSet_clear">초기화</button>
+          </div>
+          <h2 class="setAlert" id="setAlert"></h2>
+          <div class="set_visible_box">
+            <div class="set_left">{</div>
+            <div class="set_text" id="intersectionSet_text"></div>
+            <div class="set_right">}</div>
+          </div>
         </div>
       </div>
-    </div>
 
-
-    <div class="content">
-      <h2>합집합</h2>
-      <div class="set">
-        <input type="text" class="set_input_full"  id="unionSet_inputA"/>
-        <input type="text" class="set_input_full"  id="unionSet_inputB"/>
-        <div class="set_control">
-          <button class="set_create" id="unionSet_create">추가</button>
-          <button class="set_remove" id="unionSet_clear">초기화</button>
-        </div>
-        <div class="set_visible_box">
-          <div class="set_left">{</div>
-          <div class="set_text" id="unionsSet_text"></div>
-          <div class="set_right">}</div>
+      <!-- 합집합 -->
+      <div class="content">
+        <h1>합집합</h1>
+      </div>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input"  id="unionSet_inputA"/>
+            <input type="text" class="visible_input"  id="unionSet_inputB"/>
+            <button id="unionSet_create" >추가</button>
+            <button class="remove" id="unionSet_clear">초기화</button>
+          </div>
+          <h2 class="setAlert" id="setAlert"></h2>
+          <div class="set_visible_box">
+            <div class="set_left">{</div>
+            <div class="set_text" id="unionsSet_text"></div>
+            <div class="set_right">}</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <h2>간략한 설명</h2>
-    <div class="content">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati sequi accusamus unde, odit amet excepturi vel in sit animi, magnam laudantium doloribus quisquam, quasi molestias! Ratione inventore, quam consectetur in!</p>
+
     </div>
 
   </div>
-  <div id="fixed">+</div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
   <script src="bundle.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 </body>
 </html>

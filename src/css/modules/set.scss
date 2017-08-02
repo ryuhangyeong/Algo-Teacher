@@ -1,0 +1,35 @@
+// 집합 관련 스타일 시트
+.setAlert {
+  color: #212529;
+  font-weight: bold;
+}
+.error {
+  color: #f03e3e;
+}
+
+.success {
+  color: #1c7cd6;
+}
+
+.set_visible_box {
+  text-align: center;
+  overflow: hidden;
+  margin-top: 1rem;
+  .set_left {
+    float: left;
+    font-weight: 900;
+    font-size: 5rem;
+  }
+
+  .set_text {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .set_right {
+    float: right;
+    font-weight: 900;
+    font-size: 5rem;
+  }
+}

@@ -1,3 +1,5 @@
+// 해시테이블 구현시 데이터 반환
+
 function Randompeople() {
   var list = [
       {

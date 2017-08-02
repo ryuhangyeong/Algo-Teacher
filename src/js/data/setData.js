@@ -1,3 +1,5 @@
+// 집합과 관련된 데이터 모음
+
 function setData() {
   var list = [
     '류한경',

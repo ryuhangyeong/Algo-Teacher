@@ -1,6 +1,7 @@
 // index 페이지의 소개 페이지 부분
 
 .home {
+  // 초기 소개 페이지 수직, 수펑 정렬 flexbox
   background-size: cover;
   background: linear-gradient(0deg, #21abc7, #616db3);
   height: 100vh;
@@ -11,6 +12,7 @@
 
   //  헤더부분
   header {
+    // 고정 헤더
     position: fixed;
     z-index: 9999;
     top: 0;
@@ -46,7 +48,7 @@
           background-color: #329af0;
         }
       }
-
+      // 공헌자 만든이 이동 버튼
       .menu_maker {
         background-color: white;
         padding: .575rem 1.5rem;
@@ -61,13 +63,12 @@
       }
     }
   }
-
+  // 각 모듈에 대한 소개 컨텐츠
   .showcase {
     border-radius: 1.5rem;
     padding: 2rem;
     overflow: hidden;
     background-color: white;
-    cursor: pointer;
     font-weight: bold;
 
     .showcase_infomation {
@@ -88,10 +89,16 @@
 
         li {
           margin-top: 0.5rem;
+
+          a {
+            &:hover {
+              color: #72c3fc;
+            }
+          }
         }
       }
     }
-
+     // 각 모듈 이미지 박스
     .showcase_image {
       float: right;
       margin-top: 6rem;
@@ -160,7 +167,7 @@
     }
 
 
-
+    // 공헌하기 버튼
     .contribution_button {
       background-color: #fff;
       margin-top: 2rem;
@@ -182,7 +189,7 @@
   // 더보기 기능
   .more {
     position: absolute;
-    bottom: 1rem;
+    bottom: 0.2rem;
     text-align: center;
     cursor: pointer;
     transition: all 0.7s;
@@ -203,7 +210,7 @@
     }
 
     &:hover {
-      transform: translateY(-1rem);
+      transform: translateY(0.5rem);
       color: #dee2e6;
     }
   }

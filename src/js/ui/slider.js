@@ -1,3 +1,5 @@
+// 슬라이드 재사용을 위한 클래스 선언
+
 class Slider {
     constructor(left, right, ul, li, width) {
       this.leftbutton = left;
