@@ -13,7 +13,7 @@
   //  헤더부분
   header {
     // 고정 헤더
-    position: fixed;
+    position: absolute;
     z-index: 9999;
     top: 0;
     left: 0;
@@ -141,7 +141,7 @@
         float: left;
         padding: 6rem;
         margin-top: 3rem;
-
+        animation-delay: 2s;
         .free_text {
           font-size: 3rem;
         }
@@ -154,7 +154,7 @@
       .visible {
         float: right;
         padding: 10rem 5rem;
-
+        animation-delay: 2s;
         .visible_text {
           font-size: 2rem;
         }
@@ -192,7 +192,8 @@
     bottom: 0.2rem;
     text-align: center;
     cursor: pointer;
-    transition: all 0.7s;
+    // transition: all 0.7s;
+    animation-delay: 1s;
 
     a {
       display: block;
@@ -210,7 +211,7 @@
     }
 
     &:hover {
-      transform: translateY(0.5rem);
+      // transform: translateY(0.5rem);
       color: #dee2e6;
     }
   }

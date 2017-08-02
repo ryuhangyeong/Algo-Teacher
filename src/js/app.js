@@ -16,6 +16,7 @@ import 'jquery';
 /* ui 관련 자바스크립트 파일 */
 import scroll from './ui/scroll';
 import Slider from './ui/slider';
+import visible from './ui/visible';
 
 /* modules */
 import Queue from './modules/Queue';
@@ -27,12 +28,12 @@ import { Setbasic, intersectionSet, unionSet } from './modules/Set';
 
 // 모든 페이지 공통 스크롤 이벤트
 scroll.ScrollMoving();
-
+scroll.ScrollWindow();
 // 모든 페이지 공통 슬라이드
 new Slider($('#slider_left'), $('#slider_right'), $('#slider ul'), $('#slider li'), 1000);
-
 // 선형 탐색법 설명 슬라이드
 new Slider($('#linear_slider_left'), $('#linear_slider_right'), $('#linear_slider ul'), $('#linear_slider li'), 1000);
+visible.init();
 
 // modules
 Queue.init(); // 초기 시작
