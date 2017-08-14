@@ -5,8 +5,8 @@ var Queue = {
   create: $('#queue_create'),
   remove: $('#queue_remove'),
   input: $('#queue_input'),
-  list: $('.queue_list'),
-  text: $('.queue_text'),
+  list: $('#queue_list'),
+  text: $('#queue_text'),
   data: [],
 
   /* 초기화 */
