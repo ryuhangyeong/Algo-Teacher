@@ -170,6 +170,8 @@ var Chaining = {
 
   renderingCreate: function(hash, name, type) {
     this.crash_chaining.html('');
+
+    // 정렬화
     var table = this.table.sort(function(a,b) {
       return a.hash < b.hash ? -1 : a.hash > b.hash ? 1 : 0;
     });

@@ -11,7 +11,7 @@ import '../queue.html';
 import '../graph.html';
 import '../set.html';
 import '../stack.html';
-
+import '../linked.html';
 // 의존하고 있는 3rd 라이브러리 및 프레임워크 모음
 import 'jquery';
 
@@ -21,7 +21,6 @@ import Slider from './ui/slider';
 import visible from './ui/visible';
 
 /* modules */
-// import Queue from './modules/Queue';
 import LinearBasic from './modules/LinearBasic';
 import LinearStack from './modules/LinearStack';
 
@@ -41,9 +40,11 @@ new Slider($('#linear_slider_left'), $('#linear_slider_right'), $('#linear_slide
 visible.init();
 
 // modules
-// Queue.init(); // 초기 시작
+
+/* 스택과 큐 코드 재사용을 위한 클래스화 */
 new LinearBasic($('#queue_create'), $('#queue_remove'), $('#queue_input'), $('#queue_list'), $('#queue_text'))
 new LinearStack($('#stack_create'), $('#stack_remove'), $('#stack_input'), $('#stack_list'), $('#stack_text'))
+
 Hashtable.init();
 Linearsearch.init();
 Chaining.init();
