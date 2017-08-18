@@ -1,7 +1,10 @@
 import Randompeople from '../data/Randompeople';
+import filter from 'lodash/filter';
+import forEach from 'lodash/forEach';
 
 var Chaining = {
   create: $('#chaining_create'),
+  remove: $('#chaining_remove'),
   inputname: $('#chaining_input_name'),
   inputemail: $('#chaining_input_email'),
   crash_chaining: $('.crash_chaining'),
@@ -129,6 +132,48 @@ var Chaining = {
         this.renderingCreate(loseloseHashCode, name)
       }
 
+    })
+
+    this.remove.click(() =>{
+      swal({
+        title: "삭제",
+        text: "이름에 해당하는 해시 값을 삭제해요!",
+        type: "input",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        animation: "slide-from-top",
+        inputPlaceholder: "이름을 입력하세요"
+      }, (inputValue) => {
+        if(inputValue === false) return false;
+        if(inputValue === "") {
+          swal.showInputError("이름은 필수입력입니다!");
+          return false;
+        }
+
+        var inputUserCode = this.loseloseHashCode(inputValue);
+        for(var i = 0; i < this.table.length; i++) {
+          if(this.table[i].hash === inputUserCode) { // i번째 배열에 이름이 존재합니다
+            for(var j = 0; j < this.table[i].list.length; j++) {
+              if(this.table[i].list[j].name == inputValue) {
+                this.table[i].list.splice(j, 1);
+                this.rendering();
+                swal({
+                  type: "success",
+                  title: "정상 삭제되었어요!",
+                  timer: 2000,
+                  showConfirmButton: false
+                });
+                return;
+              }
+            }
+            return;
+          }
+        }
+        Materialize.toast('존재하지 않은 이름입니다!', 3000, 'rounded');
+
+
+
+      })
     })
   },
 
