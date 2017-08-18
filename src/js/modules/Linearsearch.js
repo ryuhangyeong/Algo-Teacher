@@ -4,6 +4,7 @@ import forEach from 'lodash/forEach';
 
 var Linearsearch = {
   create: $('#linear_create'),
+  remove: $('#linear_remove'),
   inputname: $('#linear_input_name'),
   inputemail: $('#linear_input_email'),
   hashtablediv: $('#linear_table'),
@@ -35,7 +36,7 @@ var Linearsearch = {
       if(this.findName(name).length > 0) { // 이미 존재하고 있는 이름이 있다면
 
         Materialize.toast('이미 존재하는 이름이거나 해시 값이 동일합니다.', 3000, 'rounded');
-
+        
         this.rendering('crash', this.findPosition(this.loseloseHashCode(name))[0].key);
 
         // 충돌된 인풋 박스 스타일링
@@ -101,8 +102,9 @@ var Linearsearch = {
                 'font-weight': 'none'
               });
             }, 4000);
-            
+
             this.linearput(name, email, infomation);
+
             this.rendering('crash', this.findName(name)[0].key);
             setTimeout(() => {
               this.randomInput();
@@ -111,6 +113,7 @@ var Linearsearch = {
           Materialize.toast('정상 추가되었어요!', 3000, 'rounded');
           // 데이터 상자에 데이터 삽입
           this.put(name, email);
+          console.log(this.table)
           setTimeout(() => {
             this.randomInput();
           }, 2000);
@@ -119,6 +122,44 @@ var Linearsearch = {
           return;
         }
       }
+    })
+
+    this.remove.click(() => {
+      swal({
+        title: "삭제",
+        text: "이름에 해당하는 해시 값을 삭제해요!",
+        type: "input",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        animation: "slide-from-top",
+        inputPlaceholder: "이름을 입력하세요"
+      }, (inputValue) => {
+        if(inputValue === false) return false;
+        if(inputValue === "") {
+          swal.showInputError("이름은 필수입력입니다!");
+          return false;
+        }
+
+        for(var i = 0; i < this.table.length; i++) {
+          if(this.table[i] === undefined) continue;
+          if(this.table[i].key === inputValue) {
+            this.rendering('crash', inputValue)
+            setTimeout(() => {
+              this.delete(this.table[i].position); // 포지션 위치
+              this.rendering('basic');
+            }, 2000)
+            swal({
+              type: "success",
+              title: "정상 삭제되었어요!",
+              timer: 2000,
+              showConfirmButton: false
+            });
+            return;
+          }
+        }
+        Materialize.toast('요소가 존재하지 않아요!', 3000, 'rounded')
+
+      })
     })
   },
 
@@ -136,6 +177,9 @@ var Linearsearch = {
       hash += key.charCodeAt(i);
     }
     return hash % 37;
+  },
+  delete: function(position) {
+    delete this.table[position];
   },
 
   // rendering

@@ -1,6 +1,6 @@
 import forEach from 'lodash/forEach';
 
-class Test {
+class LinearBasic {
   constructor(create, remove, input, list, text) {
     this.create = create;
     this.remove = remove;
@@ -145,4 +145,4 @@ class Test {
 
 }
 
-export default Test;
+export default LinearBasic;

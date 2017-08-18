@@ -155,21 +155,24 @@ var Chaining = {
           if(this.table[i].hash === inputUserCode) { // i번째 배열에 이름이 존재합니다
             for(var j = 0; j < this.table[i].list.length; j++) {
               if(this.table[i].list[j].name == inputValue) {
-                this.table[i].list.splice(j, 1);
-                this.rendering();
                 swal({
                   type: "success",
                   title: "정상 삭제되었어요!",
                   timer: 2000,
                   showConfirmButton: false
                 });
+                this.renderingCreate(inputUserCode, inputValue, 'alreay');
+                setTimeout(() => {
+                  this.table[i].list.splice(j, 1);
+                  this.rendering();
+                }, 3000)
                 return;
               }
             }
-            return;
           }
         }
         Materialize.toast('존재하지 않은 이름입니다!', 3000, 'rounded');
+
 
 
 
