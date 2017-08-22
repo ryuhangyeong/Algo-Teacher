@@ -88,12 +88,25 @@ var PriorityQueue = {
       if(!this.overlapName(name)) { // 배열 내에 존재하지 않는 이름이라면 추가
         this.priority.enqueue(name, number);
         Materialize.toast(`${name} 은(는) 추가되었어요!`, 3000, 'rounded')
+        this.rendering(renderingData, 'create', name);
+        this.inputvalue();
+        var select = this.indexName(name); // 추가되는 위치를 미리 알아낸다.
+        var selectItem = $('.priority_queue_item').eq(select); // 추가 위치 돔 선택
+        selectItem.addClass('animated bounce');
       } else {
         // 중복으로 인해 충돌이 일어난다면?
         Materialize.toast(`${name} 은(는) 중복입니다.`, 3000, 'rounded');
+        this.rendering(renderingData, 'crash', name);
+        this.inputvalue();
+        var select = this.indexName(name); // 추가되는 위치를 미리 알아낸다.
+        var selectItem = $('.priority_queue_item').eq(select); // 추가 위치 돔 선택
+        selectItem.addClass('animated shake');
+        return;
       }
-      this.rendering(renderingData, 'create', name);
-      this.inputvalue();
+
+
+
+
 
     });
 
@@ -142,6 +155,14 @@ var PriorityQueue = {
 
     // 배열 데이터에 이미 중복 존재한다면 true 그렇지 않으면 false;
     return list.indexOf(name) > -1 ? true : false;
+  },
+
+  indexName: function(name) {
+    var data = this.priority.toString();
+    var index = data.findIndex((item, index) => {
+      return item.element == name;
+    });
+    return index;
   },
 
   // 추가 및 삭제, 초기 랜더링시 인풋 데이터 재 랜더링을 위한 함수
@@ -195,6 +216,35 @@ var PriorityQueue = {
             `;
           }
           str += '</div>';
+        })
+        this.priority_queue_container.append(str);
+        break;
+
+      case 'crash':
+        forEach(data, (item) => {
+          if(item.element === selectName) {
+            str += `
+              <div class="priority_queue_item" style="background-color: #f03e3e;">
+                <div class="priority_queue_number">
+                  ${item.priority}
+                </div>
+                <div class="priority_queue_name">
+                  <h5>${item.element}</h5>
+                </div>
+              </div>
+            `;
+          } else {
+            str += `
+              <div class="priority_queue_item">
+                <div class="priority_queue_number">
+                  ${item.priority}
+                </div>
+                <div class="priority_queue_name">
+                  ${item.element}
+                </div>
+              </div>
+            `;
+          }
         })
         this.priority_queue_container.append(str);
         break;
