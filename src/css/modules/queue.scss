@@ -36,6 +36,40 @@
 
   }
 
+}
 
 
+// priority_queue 우선 순위 큐
+
+.priority_queue_container {
+  height: 300px;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  // 내부 아이템
+  .priority_queue_item {
+    float: left;
+    display: inline-block;
+
+    position: relative;
+    background-color: #1c7cd6;
+    padding: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: #329af0;
+    }
+    // 내부 아이템 우선순위
+    .priority_queue_number {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    // 내부 아이템 이름
+    .priority_queue_name {
+
+    }
+  }
 }

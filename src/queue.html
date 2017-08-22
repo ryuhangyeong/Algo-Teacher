@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Algo Teacher</title>
   <link rel="stylesheet" href="main.css">
@@ -106,11 +107,26 @@
         </div>
       </div>
 
+      <h1>우선 순위 큐</h1>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input" id="priority_queue_number"/>
+            <input type="text" class="visible_input" id="priority_queue_name"/>
+            <button id="priority_queue_create">추가</button>
+            <button class="remove" id="priority_queue_remove">삭제</button>
+          </div>
+        </div>
+
+        <div class="priority_queue_container"></div>
+      </div>
+
     </div>
 
   </div>
   <script src="bundle.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 </body>
 </html>

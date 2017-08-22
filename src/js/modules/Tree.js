@@ -8,10 +8,8 @@ function BinarySearchTree() {
   }
 
   var root = null;
-
   this.insert = function(key) {
     var newNode = new Node(key);
-
     if(root === null) {
       root = newNode;
     } else {
@@ -24,7 +22,6 @@ function BinarySearchTree() {
   }
 
   this.height = function(node) {
-    console.log("test", node)
     var dep, depl, depr;
     if(node === null) {
       dep = 0;
@@ -60,15 +57,13 @@ var insertNode = function(node, newNode) {
 var Node = function(x,y,r, ctx, data, height) {
 
   this.leftNode = null;
-
   this.rightNode = null;
-
   this.draw = function() {
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2*Math.PI);
     ctx.stroke();
     ctx.closePath();
-    ctx.strokeText(data, x, y);
+    ctx.strokeText(data, x - 5, y + 5);
   };
 
   this.getData = function() { return data; };
@@ -78,7 +73,6 @@ var Node = function(x,y,r, ctx, data, height) {
 
   this.leftCoordinate = function() {
   	var init = height == 1 ? 3 : height == 3 ? 1 : height;
-  	console.log(height);
     return {cx: (x - (init * 3 * r)), cy: (y + (init * 3 * r))}
   };
 
@@ -89,7 +83,6 @@ var Node = function(x,y,r, ctx, data, height) {
 };
 
 var Line = function() {
-
   this.draw = function(x, y, toX, toY, r, ctx) {
     var moveToX = x;
     var moveToY = y + r;
@@ -102,19 +95,14 @@ var Line = function() {
   };
 };
 
-
 var BTree = function() {
   var c = document.getElementById('canvas');
-  var ctx = c.getContext('2d');
+  
+  var ctx = c == null ? null : c.getContext('2d');
   var line = new Line();
   this.root = null;
 
-  var self = this;
-
-
   this.getRoot = function() { return this.root; };
-
-
   this.add = function(data, height) {
 
     if(this.root) {
@@ -125,8 +113,6 @@ var BTree = function() {
       return;
     }
   };
-
-
   this.recursiveAddNode = function(node, prevNode, coordinateCallback, data, height) {
     if(!node) {
 
@@ -177,8 +163,6 @@ var Tree = {
         this.inputvalue();
         return;
       }
-
-
       this.tree.insert(this.tree_input.val());
 
       var node = this.tree.getRoot();
@@ -187,8 +171,6 @@ var Tree = {
       arr.push(this.tree_input.val());
       this.btree.add(this.tree_input.val(), this.tree.height(node));
       this.inputvalue();
-
-
     })
   },
   inputvalue: function() {

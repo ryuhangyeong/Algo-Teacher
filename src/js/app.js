@@ -26,6 +26,7 @@ import visible from './ui/visible';
 /* modules */
 import LinearBasic from './modules/LinearBasic';
 import LinearStack from './modules/LinearStack';
+import PriorityQueue from './modules/PriorityQueue';
 
 import Hashtable from './modules/Hashtable';
 import Linearsearch from './modules/Linearsearch';
@@ -49,7 +50,7 @@ visible.init();
 /* 스택과 큐 코드 재사용을 위한 클래스화 */
 new LinearBasic($('#queue_create'), $('#queue_remove'), $('#queue_input'), $('#queue_list'), $('#queue_text'))
 new LinearStack($('#stack_create'), $('#stack_remove'), $('#stack_input'), $('#stack_list'), $('#stack_text'))
-
+PriorityQueue.init();
 Hashtable.init();
 Linearsearch.init();
 Chaining.init();

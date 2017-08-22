@@ -99,7 +99,7 @@ var Queue = {
         'background-color': '#DC143C',
         'opacity': '1'
       });
-
+      // 왼쪽으로 슬라이드 되며 사라지는 효과
       front.animate({
         'left': '-100px',
         'opacity': '0'
