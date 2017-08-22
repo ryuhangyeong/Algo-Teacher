@@ -27,6 +27,7 @@ import visible from './ui/visible';
 import LinearBasic from './modules/LinearBasic';
 import LinearStack from './modules/LinearStack';
 import PriorityQueue from './modules/PriorityQueue';
+import MulBase from './modules/MulBase';
 
 import Hashtable from './modules/Hashtable';
 import Linearsearch from './modules/Linearsearch';
@@ -48,11 +49,13 @@ visible.init();
 // modules
 
 /* 스택과 큐 코드 재사용을 위한 클래스화 */
-new LinearBasic($('#queue_create'), $('#queue_remove'), $('#queue_input'), $('#queue_list'), $('#queue_text'))
-new LinearStack($('#stack_create'), $('#stack_remove'), $('#stack_input'), $('#stack_list'), $('#stack_text'))
+new LinearBasic($('#queue_create'), $('#queue_remove'), $('#queue_input'), $('#queue_list'), $('#queue_text'));
+new LinearStack($('#stack_create'), $('#stack_remove'), $('#stack_input'), $('#stack_list'), $('#stack_text'));
 PriorityQueue.init();
 Hashtable.init();
 Linearsearch.init();
+
+MulBase.init();
 Chaining.init();
 Graph.event();
   // 집합관련
