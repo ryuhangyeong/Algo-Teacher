@@ -1,23 +1,7 @@
-function Stack() {
-  var items = [];
-
-  this.push = function(element) {
-    items.push(element);
-  }
-
-  this.pop = function() {
-    return items.pop();
-  }
-
-  this.length = function() {
-    return items.length;
-  }
-}
-
+import Stack from './Stack';
 
 var MulBase = {
   mulBase_create: $('#mulBase_create'),
-  mulBase_remove: $('#mulBase_remove'),
   mulBase_input: $('#mulBase_input'),
   mulBase_container: $('.mulBase_container'),
   stack: null,
@@ -31,6 +15,7 @@ var MulBase = {
   event: function() {
     this.mulBase_create.click(() => {
       var data = this.mulBase_input.val();
+      Materialize.toast('변환되었습니다!', 3000, 'rounded')
       this.binary(data);
       /*
         12로 예시

@@ -28,6 +28,7 @@ import LinearBasic from './modules/LinearBasic';
 import LinearStack from './modules/LinearStack';
 import PriorityQueue from './modules/PriorityQueue';
 import MulBase from './modules/MulBase';
+import Palindrome from './modules/Palindrome';
 
 import Hashtable from './modules/Hashtable';
 import Linearsearch from './modules/Linearsearch';
@@ -56,6 +57,7 @@ Hashtable.init();
 Linearsearch.init();
 
 MulBase.init();
+Palindrome.init();
 Chaining.init();
 Graph.event();
   // 집합관련
