@@ -3,14 +3,16 @@ import filter from 'lodash/filter';
 import forEach from 'lodash/forEach';
 
 function DictionaryClass() {
-  var data = {};
+  var data = [];
 
   this.has = function(key) {
     return key in data; // true of false;
   }
 
   this.set = function(key, value) {
-    data[key] = value;
+    data[key] = {
+      key, value
+    };
   }
 
   this.remove = function(key) {
@@ -58,12 +60,15 @@ var Dictionary = {
     this.dictionary.set('323', '이설아')
     this.dictionary.set('423', '한설주')
     this.event();
-    this.rendering('basic', '');
+
+    var data = this.dictionary.getData();
+    this.rendering(data, 'basic', '');
     this.inputvalue();
+
   },
 
   event: function() {
-
+    var that = this;
 
     this.dictionary_create.click(() => {
       var data = this.dictionary.getData();
@@ -85,16 +90,16 @@ var Dictionary = {
       }
 
 
-      if(valueArray.indexOf(value.val()) > -1) {
+      if(this.findValue(value.val()) != 0) {
         Materialize.toast('이미 존재하는 이름입니다.', 3000, 'rounded');
-        this.rendering('crash', value.val());
+        this.rendering(data,'crash', value.val());
         return;
       }
 
 
 
       this.dictionary.set(key.val(), value.val());
-      this.rendering('create', value.val());
+      this.rendering(data,'create', value.val());
       Materialize.toast('정상 추가되었어요!', 3000, 'rounded');
       this.inputvalue();
 
@@ -123,7 +128,7 @@ var Dictionary = {
           return false;
         }
 
-        if(valueArray.indexOf(inputValue) == -1) {
+        if(this.findValue(inputValue) == 0) {
           swal.showInputError("존재하지 않아 삭제 할 수 없습니다.");
           return;
         } else {
@@ -134,17 +139,58 @@ var Dictionary = {
             showConfirmButton: false
           });
           // this.rendering('crash', );
-          var removeKey = keyArray[valueArray.indexOf(inputValue)];
-          this.rendering('crash', inputValue);
+          var removeKey = this.findValue(inputValue);
+
+          this.rendering(data, 'crash', inputValue);
           setTimeout(() => {
-            this.dictionary.remove(removeKey);
-            this.rendering('basic', '');
+            this.dictionary.remove(removeKey[0].key);
+            this.rendering(data, 'basic', '');
           }, 2000)
           return;
         }
 
       })
-    })
+    });
+
+    // 정렬을 위한 이벤트 동적 바인딩
+    $(document).on("click","#sort",function(data){
+      var sort = $(this).attr('data-sort');
+      var standard = $(this).attr('data-standard');
+      var data = that.dictionary.getData();
+
+      if(sort == "key") {
+        if(standard == "height") {
+          data.sort((a, b) => {
+            return b.key - a.key;
+          })
+          that.rendering(data,'basic', '');
+
+        } else {
+          data.sort((a, b) => {
+            return a.key - b.key;
+          })
+          that.rendering(data,'basic', '');
+        }
+      } else {
+        if(standard == "height") {
+          data.sort((a, b) => {
+            return a.value > b.value ? -1 : a.value < b.value ? 1 : 0;
+          })
+          that.rendering(data,'basic', '');
+        } else {
+          data.sort((a, b) => {
+            return a.value < b.value ? -1 : a.value > b.value ? 1 : 0;
+          })
+
+          that.rendering(data,'basic', '');
+        }
+      }
+      Materialize.toast('정렬 되었어요!', 3000, 'rounded');
+    });
+
+
+
+
   },
 
   inputvalue: function() {
@@ -155,31 +201,71 @@ var Dictionary = {
     this.dictionary_input_value.val(value);
   },
 
-  rendering: function(mode, name) {
+  findValue: function(value) {
     var data = this.dictionary.getData();
+    var alreay = filter(data, (item) => {
+      return item !== undefined;
+    }).filter((item) => {
+      return item.value == value;
+    });
+
+    return alreay;
+  },
+
+  findkey: function(key) {
+    var data = this.dictionary.getData();
+    var find = filter(data, (item) => {
+      return item !== undefined;
+    }).filter((item) => {
+      return item.key == key;
+    })
+
+    return find;
+  },
+
+  rendering: function(data, mode, name) {
+
     this.dictionary_container_table.html('');
-    this.dictionary_container_table.html('<tr><th>키 <span>▲</span> <span>▼</span></th><th>값 <span>▲</span> <span>▼</span></th></tr>');
+    this.dictionary_container_table.html(`
+      <tr>
+        <th>키
+          <span id="sort" data-sort="key" data-standard="height">▲</span>
+          <span id="sort" data-sort="key" data-standard="row">▼</span>
+        </th>
+        <th>값
+          <span id="sort" data-sort="value" data-standard="height">▲</span>
+          <span id="sort" data-sort="value" data-standard="row">▼</span>
+        </th>
+      </tr>
+
+    `);
     switch(mode) {
       case 'basic':
-        forEach(data, (item, index) => {
-          this.dictionary_container_table.append(`<tr><td>${index}</td><td>${item}</td></tr>`)
+        filter(data, (item) => {
+          return item !== undefined;
+        }).forEach((item, index) => {
+          this.dictionary_container_table.append(`<tr><td>${item.key}</td><td>${item.value}</td></tr>`)
         });
         break;
       case 'create':
-        forEach(data, (item, index) => {
-          if(item == name) {
-            this.dictionary_container_table.append(`<tr class="animated bounceIn" style="background-color:#4B9BE1; color: #fff; font-weight: bold;"><td>${index}</td><td>${item}</td></tr>`)
+        filter(data, (item) => {
+          return item !== undefined;
+        }).forEach((item, index) => {
+          if(item.value == name) {
+            this.dictionary_container_table.append(`<tr class="animated bounceIn" style="background-color:#4B9BE1; color: #fff; font-weight: bold;"><td>${item.key}</td><td>${item.value}</td></tr>`)
           } else {
-            this.dictionary_container_table.append(`<tr><td>${index}</td><td>${item}</td></tr>`)
+            this.dictionary_container_table.append(`<tr><td>${item.key}</td><td>${item.value}</td></tr>`)
           }
         });
         break;
       case 'crash':
-        forEach(data, (item, index) => {
-          if(item == name) {
-            this.dictionary_container_table.append(`<tr class="animated shake" style="background-color:#f03e3e; color: #fff; font-weight: bold;"><td>${index}</td><td>${item}</td></tr>`)
+        filter(data, (item) => {
+          return item !== undefined;
+        }).forEach((item, index) => {
+          if(item.value == name) {
+            this.dictionary_container_table.append(`<tr class="animated shake" style="background-color:#f03e3e; color: #fff; font-weight: bold;"><td>${item.key}</td><td>${item.value}</td></tr>`)
           } else {
-            this.dictionary_container_table.append(`<tr><td>${index}</td><td>${item}</td></tr>`)
+            this.dictionary_container_table.append(`<tr><td>${item.key}</td><td>${item.value}</td></tr>`)
           }
         });
         break;
