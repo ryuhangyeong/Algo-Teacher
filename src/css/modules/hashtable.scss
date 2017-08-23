@@ -1,15 +1,14 @@
 // 해시테이블에 테이블 스타일 시트
-.hashtable_table {
+.hashtable_table, .dictionary_container {
   margin: 1rem 0;
   padding: 0;
-
   table, td, th {
     border: 1px solid #ddd;
     text-align: center;
   }
 
   table {
-    width: 94%;
+    width: 97%;
   }
 
   th, td {

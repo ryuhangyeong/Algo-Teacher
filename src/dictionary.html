@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Algo Teacher</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="home">
+    <header>
+      <div class="container">
+        <a class="logo" href="index.html">ALGO Teacher</a>
+        <div class="menu">
+
+          <a href="index.html"><span class="menu_info">다른 모듈로</span></a>
+          <a href="contribution.html"><span class="menu_maker">만든이 / 공헌하기</span></a>
+        </div>
+      </div>
+    </header>
+    <div class="showcase">
+      <div class="container">
+        <div class="showcase_infomation">
+          <h1>Dictionary</h1>
+          <p>
+            딕셔너리는 데이터를 키와 값 쌍으로 저장하는 자료구조이다.
+          </p>
+          <h1>참고 자료</h1>
+          <ul>
+            <li><a href="#">딕셔너리 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
+            <li><a href="#">딕셔너리 (자료구조) - 나무위키</a></li>
+            <li><a href="#">딕셔너리 (자료구조) - 네이버</a></li>
+            <li><a href="#">딕셔너리 (자료구조) - 유튜브 검색</a></li>
+          </ul>
+        </div>
+        <div class="showcase_image">
+          <img src="img/dictionary.jpg" alt="dictionary">
+        </div>
+      </div>
+    </div>
+
+    <div class="more">
+      <a href="#module">
+        <p>자세히 알아보기</p>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </a>
+    </div>
+  </div>
+  <div class="container" id="module" style="margin-top: 4rem;">
+      <div class="content">
+        <div class="slider_control">
+          <div class="button left" id="slider_left">
+            <i class="material-icons">chevron_left</i>
+          </div>
+          <div class="button right" id="slider_right">
+            <i class="material-icons">chevron_right</i>
+          </div>
+        </div>
+
+        <div class="slider" id="slider">
+          <ul>
+            <li>
+              <h1>소스코드</h1>
+              <textarea class="textarea_box" readonly>
+
+                function Queue() {
+                   this.data = [];
+                }
+
+                Queue.prototype.enqueue = function(element) {
+                   this.data.push(element);
+                }
+
+                Queue.prototype.dequeue = function() {
+                   return this.data.shift();
+                }
+
+                Queue.prototype.toString = function() {
+                   return this.data;
+                }
+              </textarea>
+            </li>
+            <li>
+              <h1>도움 영상</h1>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h1>시각화</h1>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input" id="dictionary_input_key"/>
+            <input type="text" class="visible_input" id="dictionary_input_value"/>
+            <button id="dictionary_create">추가</button>
+            <button class="remove" id="dictionary_remove">삭제</button>
+          </div>
+        </div>
+        <div class="dictionary_container">
+          <table></table>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script src="bundle.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+</body>
+</html>

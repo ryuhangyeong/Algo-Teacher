@@ -15,6 +15,7 @@ import '../set.html';
 import '../stack.html';
 import '../linked.html';
 import '../tree.html';
+import '../dictionary.html';
 // 의존하고 있는 3rd 라이브러리 및 프레임워크 모음
 import 'jquery';
 
@@ -37,6 +38,7 @@ import Graph from './modules/Graph';
 import { Setbasic, intersectionSet, unionSet } from './modules/Set';
 
 import Tree from './modules/Tree';
+import Dictionary from './modules/Dictionary';
 
 // 모든 페이지 공통 스크롤 이벤트
 scroll.ScrollMoving();
@@ -55,7 +57,7 @@ new LinearStack($('#stack_create'), $('#stack_remove'), $('#stack_input'), $('#s
 PriorityQueue.init();
 Hashtable.init();
 Linearsearch.init();
-
+Dictionary.init();
 MulBase.init();
 Palindrome.init();
 Chaining.init();
