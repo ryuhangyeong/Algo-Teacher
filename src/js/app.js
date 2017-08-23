@@ -16,6 +16,8 @@ import '../stack.html';
 import '../linked.html';
 import '../tree.html';
 import '../dictionary.html';
+import '../search.html';
+
 // 의존하고 있는 3rd 라이브러리 및 프레임워크 모음
 import 'jquery';
 
@@ -39,6 +41,7 @@ import { Setbasic, intersectionSet, unionSet } from './modules/Set';
 
 import Tree from './modules/Tree';
 import Dictionary from './modules/Dictionary';
+import SequentialSearch from './modules/SequentialSearch';
 
 // 모든 페이지 공통 스크롤 이벤트
 scroll.ScrollMoving();
@@ -68,3 +71,4 @@ Graph.event();
   unionSet.init();
 
 Tree.init();
+SequentialSearch.init();
