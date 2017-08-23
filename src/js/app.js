@@ -42,6 +42,7 @@ import { Setbasic, intersectionSet, unionSet } from './modules/Set';
 import Tree from './modules/Tree';
 import Dictionary from './modules/Dictionary';
 import SequentialSearch from './modules/SequentialSearch';
+import BinarySearch from './modules/BinarySearch';
 
 // 모든 페이지 공통 스크롤 이벤트
 scroll.ScrollMoving();
@@ -72,3 +73,4 @@ Graph.event();
 
 Tree.init();
 SequentialSearch.init();
+BinarySearch.init();

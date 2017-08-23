@@ -205,8 +205,6 @@ var Chaining = {
        return a.hash < b.hash ? -1 : a.hash > b.hash ? 1 : 0;
     });
 
-    var str = '';
-
     for(var i = 0; i < this.table.length; i++) {
       this.crash_chaining.append('<div class="chaning'+" chaning_"+table[i].hash+'"><div class="hashvalue">'+table[i].hash+'</div><span class="link"></span class="link"></span>');
         for(var j = 0; j < table[i].list.length; j++) {
@@ -224,14 +222,12 @@ var Chaining = {
       return a.hash < b.hash ? -1 : a.hash > b.hash ? 1 : 0;
     });
 
-    var str = '';
-
     for(var i = 0; i < this.table.length; i++) {
       if(hash == table[i].hash) {
         if(type == 'alreay') {
-          this.crash_chaining.append('<div class="chaning'+" chaning_"+table[i].hash+'"><div class="hashvalue" style="background-color: #f03e3e; font-weight: bold;">'+table[i].hash+'</div><span class="link"></span class="link"></span>');
+          this.crash_chaining.append('<div class="chaning'+" chaning_"+table[i].hash+' animated shake"><div class="hashvalue" style="background-color: #f03e3e; font-weight: bold;">'+table[i].hash+'</div><span class="link"></span class="link"></span>');
         } else {
-          this.crash_chaining.append('<div class="chaning'+" chaning_"+table[i].hash+'"><div class="hashvalue" style="background-color: #4B9BE1; font-weight: bold;">'+table[i].hash+'</div><span class="link"></span class="link"></span>');
+          this.crash_chaining.append('<div class="chaning'+" chaning_"+table[i].hash+' animated shake"><div class="hashvalue" style="background-color: #4B9BE1; font-weight: bold;">'+table[i].hash+'</div><span class="link"></span class="link"></span>');
         }
       } else {
         this.crash_chaining.append('<div class="chaning'+" chaning_"+table[i].hash+'"><div class="hashvalue">'+table[i].hash+'</div><span class="link"></span class="link"></span>');

@@ -25,10 +25,12 @@ var SequentialSearch = {
 
       this.rendering(array);
 
+      this.search_button.attr('disabled', true);
       var func = setInterval(() => {
         if(array[index] == value.val()) {
           clearInterval(func);
           Materialize.toast(`${value.val()} 을(를) 찾았어요!`, 3000, 'rounded');
+          this.search_button.attr('disabled', false);
         }
         this.rendering(array, array[index]);
         index++;
@@ -36,8 +38,10 @@ var SequentialSearch = {
         if(index == array.length) {
           clearInterval(func);
           Materialize.toast('존재하지 않은 데이터입니다!', 3000, 'rounded');
+          this.search_button.attr('disabled', false);
         }
       }, 1000);
+
     });
 
     this.search_clear.click(() => {
