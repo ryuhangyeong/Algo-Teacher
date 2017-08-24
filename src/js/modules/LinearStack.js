@@ -1,8 +1,8 @@
-import LinearBasic from './LinearBasic';
+import Linear from './Linear';
 import forEach from 'lodash/forEach';
 
 // LinearBasic 를 가지고 온 후에 오버라이딩한다. 로직 대부분이 비슷하여 재사용한다.
-class LinearStack extends LinearBasic {
+class LinearStack extends Linear {
 
   // 오버라이딩 되는 부분
   /*

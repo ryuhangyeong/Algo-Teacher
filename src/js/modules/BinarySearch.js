@@ -50,16 +50,12 @@ var BinarySearch = {
           this.binary_search_button.attr('disabled', false);
           clearInterval(func)
         }
-      }, 5000);
+      }, 3000);
     });
 
     this.binary_search_clear.click(() => {
-      alert('초기화')
+      this.inputvalue();
     })
-  },
-
-  search() {
-
   },
 
   inputvalue() {

@@ -1,12 +1,10 @@
-
-// 메인 스타일 시트
+/* 메인 스타일 시트 */
 import '../css/main.scss';
-
+/* 이미지 */
 import '../img/ryuhangyeong.jpg';
 import '../img/apalsl.jpg';
 import '../img/tree.jpg';
-
-// 의존하고 있는 HTML 파일들
+/* 의존하고 있는 HTML 파일들 */
 import '../contribution.html';
 import '../hashtable.html';
 import '../queue.html';
@@ -17,17 +15,16 @@ import '../linked.html';
 import '../tree.html';
 import '../dictionary.html';
 import '../search.html';
-
-// 의존하고 있는 3rd 라이브러리 및 프레임워크 모음
+/* 의존하고 있는 3rd 라이브러리 및 프레임워크 모음 */
 import 'jquery';
-
 /* ui 관련 자바스크립트 파일 */
 import scroll from './ui/scroll';
 import Slider from './ui/slider';
 import visible from './ui/visible';
 
 /* modules */
-import LinearBasic from './modules/LinearBasic';
+import Linear from './modules/Linear'; // 선형 자료구조 큐(Queue)
+
 import LinearStack from './modules/LinearStack';
 import PriorityQueue from './modules/PriorityQueue';
 import MulBase from './modules/MulBase';
@@ -56,7 +53,7 @@ visible.init();
 // modules
 
 /* 스택과 큐 코드 재사용을 위한 클래스화 */
-new LinearBasic($('#queue_create'), $('#queue_remove'), $('#queue_input'), $('#queue_list'), $('#queue_text'));
+new Linear($('#queue_create'), $('#queue_remove'), $('#queue_input'), $('#queue_list'), $('#queue_text'));
 new LinearStack($('#stack_create'), $('#stack_remove'), $('#stack_input'), $('#stack_list'), $('#stack_text'));
 PriorityQueue.init();
 Hashtable.init();
