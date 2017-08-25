@@ -1,11 +1,13 @@
 import Stack from './Stack';
+import Error from '../utils/Error'; // 에러 핸들링
+import Alert from '../utils/Alert'; // Materialize 알림창
 
+// 리팩토링(17/8/24)
 var MulBase = {
   mulBase_create: $('#mulBase_create'),
   mulBase_input: $('#mulBase_input'),
   mulBase_container: $('.mulBase_container'),
   stack: null,
-
   init: function() {
     this.stack = new Stack();
     this.event();
@@ -15,24 +17,19 @@ var MulBase = {
   event: function() {
     this.mulBase_create.click(() => {
       var data = this.mulBase_input.val();
-      Materialize.toast('변환되었습니다!', 3000, 'rounded')
+      var reg = /^[0-9]*$/; // 정규  표현식 숫자만
+      try {
+        if(!reg.test(data)) {
+          throw new Error('NOT NUMBER', '숫자만 입력가능 합니다!');
+        }
+      } catch(e) {
+        if(e.name == 'NOT NUMBER') {
+          Alert(e.message, 3000);
+          return;
+        }
+      }
+      Alert('변환되었습니다!', 3000);
       this.binary(data);
-      /*
-        12로 예시
-        12가 들어가면 나머지 0이 push
-        6은 0보다 크므로 다시 위로
-        6이 들어가서 나머지 0이 push
-        3은 0보다 크므로 다시 위로
-        3이 들어가서 나머지 1이 push
-        1은 0보다 크므로 다시 위로
-        1이 들어가서 나머지 1이 push
-        1 나누기 2는 0 Math.floor를 통해서
-        그러면 while(data > 0) 조건 비성립하므로 이쪽 반복문은 종료 이제 아래로
-
-        stack 갯수를 세어서 0보다 큰 경우 돌아간다. 돌때마다 pop으로 제일 왼쪽 데이터를 꺼내고 str에 붙인다.
-        계속 꺼내쓰다보면 길이가 0보다 작아질 경우 while문 종료
-      */
-
     })
   },
 
@@ -42,8 +39,6 @@ var MulBase = {
       this.stack.push(data % 2);
       data = Math.floor(data / 2);
     } while(data > 0);
-
-
     var str = "";
     while (this.stack.length() > 0) {
       str += this.stack.pop();
