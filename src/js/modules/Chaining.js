@@ -50,14 +50,14 @@ var Chaining = {
     }
   ],
   // 초기화 함수
-  init: function() {
+  init() {
     this.rendering();
     this.randomInput();
     this.event();
   },
 
   // 이벤트 함수
-  event: function() {
+  event() {
     // 데이터 추가 로직 함수
     this.create.click(() => {
       var name = this.inputname.val();
@@ -182,13 +182,13 @@ var Chaining = {
 
 
   /* utils */
-  randomInput: function() {
+  randomInput() {
     var value = Randompeople();
     this.inputname.val(value.name);
     this.inputemail.val(value.email);
   },
 
-  loseloseHashCode: function(key) {
+  loseloseHashCode(key) {
     var hash = 0;
     for(var i = 0; i < key.length; i++) {
       hash += key.charCodeAt(i);
@@ -199,7 +199,7 @@ var Chaining = {
 
   /* 랜더링 함수 */
 
-  rendering: function() {
+  rendering() {
     this.crash_chaining.html('');
     var table = this.table.sort((a,b) => {
        return a.hash < b.hash ? -1 : a.hash > b.hash ? 1 : 0;
@@ -214,7 +214,7 @@ var Chaining = {
     }
   },
 
-  renderingCreate: function(hash, name, type) {
+  renderingCreate(hash, name, type) {
     this.crash_chaining.html('');
 
     // 정렬화
@@ -227,7 +227,7 @@ var Chaining = {
         if(type == 'alreay') {
           this.crash_chaining.append('<div class="chaning'+" chaning_"+table[i].hash+' animated shake"><div class="hashvalue" style="background-color: #f03e3e; font-weight: bold;">'+table[i].hash+'</div><span class="link"></span class="link"></span>');
         } else {
-          this.crash_chaining.append('<div class="chaning'+" chaning_"+table[i].hash+' animated shake"><div class="hashvalue" style="background-color: #4B9BE1; font-weight: bold;">'+table[i].hash+'</div><span class="link"></span class="link"></span>');
+          this.crash_chaining.append('<div class="chaning'+" chaning_"+table[i].hash+' animated slideInRight"><div class="hashvalue" style="background-color: #4B9BE1; font-weight: bold;">'+table[i].hash+'</div><span class="link"></span class="link"></span>');
         }
       } else {
         this.crash_chaining.append('<div class="chaning'+" chaning_"+table[i].hash+'"><div class="hashvalue">'+table[i].hash+'</div><span class="link"></span class="link"></span>');

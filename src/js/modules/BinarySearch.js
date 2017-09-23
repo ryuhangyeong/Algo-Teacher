@@ -41,7 +41,7 @@ var BinarySearch = {
           mid = Math.floor(data.length / 2);
           this.rendering(data, data[mid]);
         } else if(parseInt(value.val()) > parseInt(data[mid])){
-          data = data.splice(mid, data.length - mid);
+          data = data.splice(mid, data.length - mid + 1);
           mid = Math.floor(data.length / 2);
           this.rendering(data, data[mid]);
         } else {

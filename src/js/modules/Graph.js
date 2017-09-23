@@ -67,7 +67,7 @@ var Graph = {
     });
 
     this.adjacency_clear.click(() => {
-      var canvas = document.getElementById('output');
+      var canvas = document.getElementById('output_adjacency');
       var adj = adjacency();
       this.clearCanvas(canvas);
       this.adjacency.val(adj.text);

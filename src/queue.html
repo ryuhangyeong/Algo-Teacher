@@ -34,8 +34,7 @@
           <h1>참고 자료</h1>
           <ul>
             <li><a href="https://ko.wikipedia.org/wiki/%ED%81%90_(%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0)">큐 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
-            <li><a href="https://namu.wiki/w/%ED%81%90(%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0)">큐 (자료구조) - 나무위키</a></li>
-            <li><a href="https://www.youtube.com/results?search_query=data+structure+queue">큐 (자료구조) - 유튜브 검색</a></li>
+            <li><a href="https://www.youtube.com/results?search_query=%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0+%ED%81%90">큐 (자료구조) - 유튜브 검색</a></li>
           </ul>
         </div>
         <div class="showcase_image">
@@ -65,19 +64,17 @@
         <div class="slider" id="slider">
           <ul>
             <li>
-              <h1>소스코드</h1>
-              <textarea class="textarea_box" readonly>
-
-              </textarea>
-            </li>
-            <li>
               <h1>도움 영상</h1>
+              <iframe width="100%" height="500" src="https://www.youtube.com/embed/_aU2e70gYlo" frameborder="0" allowfullscreen></iframe>
             </li>
           </ul>
         </div>
       </div>
 
       <h1>시각화</h1>
+      <div class="content">
+        큐는 FIFO(선입선출) 원리에 따라 정렬된 컬렉션이다. 새 원소는 뒤에서 추가되고, 삭제는 앞 부분에서 일어나게 된다.
+      </div>
       <div class="content">
         <div class="visible">
           <div class="visible_control">
@@ -94,6 +91,9 @@
 
       <h1>우선 순위 큐</h1>
       <div class="content">
+        우선순위 큐는 원소가 가지는 우선순위에 따라 추가된다. 삭제는 우선순위가 작은 순서(앞 부분)부터 삭제 된다.( 설계에 따라 달라질 수 있다 )
+      </div>
+      <div class="content">
         <div class="visible">
           <div class="visible_control">
             <input type="text" class="visible_input" id="priority_queue_number"/>
@@ -107,7 +107,9 @@
       </div>
 
     </div>
-
+    <div class="fixed">
+      <a href="/"><i class="material-icons">home</i></a>
+    </div>
   </div>
   <script src="bundle.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

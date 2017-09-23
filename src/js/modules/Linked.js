@@ -34,6 +34,7 @@ const Linked = {
           if(name == "" || index == "") throw new Error('EMPTY INPUT', '이름과 인덱스를 필수 입력하세요!');
           this.indexAdd(index, name);
           this.rendering('add', name);
+          Alert('추가되었어요!', 3000)
           this.inputvalue();
         } catch(e) {
           if(e.name == 'AWRONG INPUT') {
@@ -65,6 +66,7 @@ const Linked = {
         this.add(name);
         this.rendering('add', name);
         this.inputvalue();
+        Alert('추가되었어요!', 3000)
       } catch(e) {
         if(e.name == 'ALREADY NAME') {
           Alert(e.message, 3000);

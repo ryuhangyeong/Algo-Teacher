@@ -2,7 +2,6 @@
 import '../css/main.scss';
 /* 이미지 */
 import '../img/ryuhangyeong.jpg';
-import '../img/apalsl.jpg';
 import '../img/tree.jpg';
 /* 의존하고 있는 HTML 파일들 */
 import '../contribution.html';
@@ -15,6 +14,7 @@ import '../linked.html';
 import '../tree.html';
 import '../dictionary.html';
 import '../search.html';
+import '../copyright.html'
 /* 의존하고 있는 3rd 라이브러리 및 프레임워크 모음 */
 import 'jquery';
 /* ui 관련 자바스크립트 파일 */
@@ -40,6 +40,7 @@ import Tree from './modules/Tree';
 import Dictionary from './modules/Dictionary';
 import SequentialSearch from './modules/SequentialSearch';
 import BinarySearch from './modules/BinarySearch';
+import Linked from './modules/Linked';
 
 // 모든 페이지 공통 스크롤 이벤트
 scroll.ScrollMoving();
@@ -71,3 +72,4 @@ Graph.event();
 Tree.init();
 SequentialSearch.init();
 BinarySearch.init();
+Linked.init();

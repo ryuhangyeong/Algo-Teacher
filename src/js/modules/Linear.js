@@ -1,7 +1,7 @@
-import forEach from 'lodash/forEach';
-import { NotItem } from '../utils/Error'; // 에러 핸들링
+import Error from '../utils/Error'; // 에러 핸들링
 import Alert from '../utils/Alert'; // Materialize 알림창
 
+// 리팩토링(17/8/24)
 // 선형 자료구조 큐(Queue) 구현
 class Linear {
   constructor(create, remove, input, list, text) {
@@ -32,9 +32,9 @@ class Linear {
   createFunction() {
     this.create.attr('disabled', true); // 시각화 도중에 버튼 컨트롤 불가능
     try {
-      if(this.count() > 8) throw new NotItem("더 이상 추가 할 수 없어요!");
+      if(this.count() > 8) throw new Error("NOT ADD", "더 이상 추가 할 수 없어요!");
     } catch(e) {
-      if(e instanceof NotItem) {
+      if(e.name == 'NOT ADD') {
         Alert(e.message, 1000);
         this.disabled(this.create, false);
         return;
@@ -66,9 +66,9 @@ class Linear {
 
   removeFunction() {
     try {
-      if(this.count() == 1) throw new NotItem("더 이상 삭제 할 수 없어요!");
+      if(this.count() == 1) throw new Error("NOT REMOVE", "더 이상 삭제 할 수 없어요!");
     } catch(e) {
-      if(e instanceof NotItem) {
+      if(e.name == "NOT REMOVE") {
         Alert(e.message, 1000);
         this.disabled(this.create, false);
         return;

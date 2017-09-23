@@ -19,7 +19,6 @@
       &:hover {
         transform: translateY(0.7rem);
       }
-
       a {
         color: black;
       }
@@ -31,12 +30,31 @@
       }
 
   }
+  // 저작권 정보
+
+  .copyright_content {
+    margin-bottom: 1rem;
+    display: flex;
+    flex: 1 1 0;
+    .copyright_subscribe {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1 1 0;
+    }
+  }
+
 
   // 컨테이너 내부 공헌자 리스트
   .contribution {
     overflow: hidden;
     background: white;
     margin-top: 5rem;
+
+    img {
+      width: 181px;
+      height: 195px;
+    }
     .card {
       cursor: pointer;
       &:hover {

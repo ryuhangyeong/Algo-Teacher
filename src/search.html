@@ -33,10 +33,8 @@
           </p>
           <h1>참고 자료</h1>
           <ul>
-            <li><a href="#">검색 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
-            <li><a href="#">검색 (자료구조) - 나무위키</a></li>
-            <li><a href="#">검색 (자료구조) - 네이버</a></li>
-            <li><a href="#">검색 (자료구조) - 유튜브 검색</a></li>
+            <li><a href="https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%A7%84_%EA%B2%80%EC%83%89_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">이진 검색 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
+            <li><a href="https://ko.wikipedia.org/wiki/%EC%88%9C%EC%B0%A8_%EA%B2%80%EC%83%89_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">순차 검색 (자료구조) - 나무위키</a></li>
           </ul>
         </div>
         <div class="showcase_image">
@@ -53,49 +51,13 @@
     </div>
   </div>
   <div class="container" id="module" style="margin-top: 4rem;">
-      <div class="content">
-        <div class="slider_control">
-          <div class="button left" id="slider_left">
-            <i class="material-icons">chevron_left</i>
-          </div>
-          <div class="button right" id="slider_right">
-            <i class="material-icons">chevron_right</i>
-          </div>
-        </div>
-
-        <div class="slider" id="slider">
-          <ul>
-            <li>
-              <h1>소스코드</h1>
-              <textarea class="textarea_box" readonly>
-
-                function Queue() {
-                   this.data = [];
-                }
-
-                Queue.prototype.enqueue = function(element) {
-                   this.data.push(element);
-                }
-
-                Queue.prototype.dequeue = function() {
-                   return this.data.shift();
-                }
-
-                Queue.prototype.toString = function() {
-                   return this.data;
-                }
-              </textarea>
-            </li>
-            <li>
-              <h1>도움 영상</h1>
-            </li>
-          </ul>
-        </div>
-      </div>
 
       <h1>시각화</h1>
 
       <h5>순차 검색</h5>
+      <div class="content">
+        <p>원하는 원소를 찾을 때까지 자료 구조 전체를 뒤져보는, 가장 비효율적인 알고리즘</p>
+      </div>
       <div class="content">
         <div class="visible">
           <div class="visible_control">
@@ -110,6 +72,15 @@
 
       <h5>이진 검색</h5>
       <div class="content">
+        <p>
+          1. 배열을 정렬한다. <br/>
+          2. 배열 중에서 중간 값을 선택한다. <br/>
+          3. 이 원소가 검색할 원소가 일치하면 검색은 종료된다.(값을 찾았다) <br/>
+          4. 검색할 원소가 중간 값보다 작다면, 중간 값 왼쪽 원소들 중 하나일 것이므로, 1번으로 다시 돌아간다. <br/>
+          5. 검색할 원소가 중간 값보다 크다면, 중간 값 오른쪽 원소들 중 하나일 것이므로, 1번으로 다시 돌아간다. <br/>
+        </p>
+      </div>
+      <div class="content">
         <div class="visible">
           <div class="visible_control">
             <input type="text" class="visible_input" id="binary_search_input_array" disabled="disabled"/>
@@ -123,6 +94,9 @@
 
     </div>
 
+  </div>
+  <div class="fixed">
+    <a href="/"><i class="material-icons">home</i></a>
   </div>
   <script src="bundle.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

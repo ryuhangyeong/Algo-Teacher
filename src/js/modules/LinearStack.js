@@ -1,8 +1,8 @@
 import Linear from './Linear';
-import forEach from 'lodash/forEach';
 import Error from '../utils/Error'; // 에러 핸들링
 import Alert from '../utils/Alert'; // Materialize 알림창
 
+// 리팩토링(17/8/24)
 // LinearBasic 를 가지고 온 후에 오버라이딩한다. 로직 대부분이 비슷하여 재사용한다.
 class LinearStack extends Linear {
   /*

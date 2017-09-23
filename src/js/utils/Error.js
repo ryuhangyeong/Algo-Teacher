@@ -1,9 +1,6 @@
-function NotItem(message) {
+function Error(name, message) {
+  this.name = name;
   this.message = message;
-  this.name = "NotItem";
 }
 
-
-export {
-  NotItem
-}
+export default Error

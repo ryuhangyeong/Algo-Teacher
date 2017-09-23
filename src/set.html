@@ -51,48 +51,12 @@
     </div>
   </div>
   <div class="container" id="module" style="margin-top: 4rem;">
-      <div class="content">
-        <div class="slider_control">
-          <div class="button left" id="slider_left">
-            <i class="material-icons">chevron_left</i>
-          </div>
-          <div class="button right" id="slider_right">
-            <i class="material-icons">chevron_right</i>
-          </div>
-        </div>
-
-        <div class="slider" id="slider">
-          <ul>
-            <li>
-              <h1>소스코드</h1>
-              <textarea class="textarea_box" readonly>
-
-                function Queue() {
-                   this.data = [];
-                }
-
-                Queue.prototype.enqueue = function(element) {
-                   this.data.push(element);
-                }
-
-                Queue.prototype.dequeue = function() {
-                   return this.data.shift();
-                }
-
-                Queue.prototype.toString = function() {
-                   return this.data;
-                }
-              </textarea>
-            </li>
-            <li>
-              <h1>도움 영상</h1>
-            </li>
-          </ul>
-        </div>
-      </div>
       <!-- 기본 -->
       <div class="content">
         <h1>기본 집합</h1>
+      </div>
+      <div class="content">
+        집합은 정렬되지 않은 컬렉션으로 원소는 중복되지 않는다.
       </div>
       <div class="content">
         <div class="visible">
@@ -113,6 +77,9 @@
       <!-- 교집합 -->
       <div class="content">
         <h1>교집합</h1>
+      </div>
+      <div class="content">
+        두 개 집합의 공통된 원소를 반환한다.
       </div>
       <div class="content">
         <div class="visible">
@@ -136,6 +103,9 @@
         <h1>합집합</h1>
       </div>
       <div class="content">
+        두 개 원소 집합을 합친 결과를 반환한다.
+      </div>
+      <div class="content">
         <div class="visible">
           <div class="visible_control">
             <input type="text" class="visible_input"  id="unionSet_inputA"/>
@@ -155,6 +125,9 @@
 
     </div>
 
+  </div>
+  <div class="fixed">
+    <a href="/"><i class="material-icons">home</i></a>
   </div>
   <script src="bundle.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

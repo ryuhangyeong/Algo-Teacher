@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Algo Teacher</title>
   <link rel="stylesheet" href="main.css">
@@ -32,10 +33,7 @@
           </p>
           <h1>참고 자료</h1>
           <ul>
-            <li><a href="#">해시 테이블 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
-						<li><a href="#">해시 테이블 (자료구조) - 나무위키</a></li>
-						<li><a href="#">해시 테이블 (자료구조) - 네이버</a></li>
-						<li><a href="#">해시 테이블 (자료구조) - 유튜브 검색</a></li>
+						<li><a href="https://www.youtube.com/results?search_query=%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0+%ED%95%B4%EC%8B%9C+%ED%85%8C%EC%9D%B4%EB%B8%94">해시 테이블 (자료구조) - 유튜브 검색</a></li>
           </ul>
         </div>
         <div class="showcase_image">
@@ -65,33 +63,16 @@
         <div class="slider" id="slider">
           <ul>
             <li>
-              <h1>소스코드</h1>
-              <textarea class="textarea_box" readonly>
-
-                function Queue() {
-                   this.data = [];
-                }
-
-                Queue.prototype.enqueue = function(element) {
-                   this.data.push(element);
-                }
-
-                Queue.prototype.dequeue = function() {
-                   return this.data.shift();
-                }
-
-                Queue.prototype.toString = function() {
-                   return this.data;
-                }
-              </textarea>
-            </li>
-            <li>
               <h1>도움 영상</h1>
+              <iframe width="100%" height="500" src="https://www.youtube.com/embed/nZ4DQKVatwE" frameborder="0" allowfullscreen></iframe>
             </li>
           </ul>
         </div>
       </div>
       <h1>시각화</h1>
+      <div class="content">
+        주어진 이름값을 해쉬화하여 해당하는 위치에 삽입한다. 이름이 다르더라도 해쉬값이 동일한 경우, 충돌되었다고 표현하며 충돌 방지법에는 선형 탐색 및 체이닝 방법이 존재한다. 아래 참조
+      </div>
       <div class="content">
         <div class="visible">
           <div class="visible_control">
@@ -237,6 +218,9 @@
 
     </div>
 
+  </div>
+  <div class="fixed">
+    <a href="/"><i class="material-icons">home</i></a>
   </div>
   <script src="bundle.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

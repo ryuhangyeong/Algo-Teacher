@@ -1,6 +1,8 @@
 import Randompeople from '../data/Randompeople';
 import filter from 'lodash/filter';
 import forEach from 'lodash/forEach';
+import Error from '../utils/Error'; // 에러 핸들링
+import Alert from '../utils/Alert'; // Materialize 알림창
 
 var Hashtable = {
   create: $('#hashtable_create'),
@@ -25,58 +27,39 @@ var Hashtable = {
     this.create.click(() => {
       var name = this.inputname.val();
       var email = this.inputemail.val();
+      try {
+        if(name == '' || email == '') throw new Error('NEED INPUT', '요소는 필수 입력이예요!');
+        // 갯수가 0이 아니면 이미 데이터가 존재한다
+        if(this.findPosition(this.loseloseHashCode(name)) != 0) {
+          throw new Error('CRASH', '충돌이 발생했어요!');
+        } else {
+          Alert('정상적으로 추가되었어요!', 3000);
+          // 데이터 상자에 데이터 삽입
+          this.put(name, email);
+          setTimeout(() => { this.randomInput(); }, 3000);
+          this.rendering('mark', this.findPosition(this.loseloseHashCode(name))[0].key);
+          return;
+        }
+      } catch(e) {
+        if(e.name == 'NEED INPUT') {
+          Alert(e.message, 3000);
+          this.inputname.focus();
+          return;
+        } else if(e.name == 'CRASH') {
+          Alert(e.message, 4000);
+          this.rendering('crash', this.findPosition(this.loseloseHashCode(name))[0].key);
 
-      // 인풋 유효성 검사
-      if(name == '' || email == '') {
-        Materialize.toast('요소는 필수 입력이예요!', 3000, 'rounded');
-        this.inputname.focus();
-        return;
-      }
-
-      // 갯수가 0이 아니면 이미 데이터가 존재한다는 말이다.
-      if(this.findPosition(this.loseloseHashCode(name)) != 0) {
-
-        Materialize.toast('충돌이 발생했어요!', 4000, 'rounded')
-        this.rendering('crash', this.findPosition(this.loseloseHashCode(name))[0].key);
-
-        // 충돌된 인풋 박스 스타일링
-        this.inputname.css({
-          'color': '#f03e3e',
-          'font-weight': 'bold'
-        });
-        this.inputemail.css({
-          'color': '#f03e3e',
-          'font-weight': 'bold'
-        });
-
-
-        setTimeout(() => {
-          // 4초 지난후 스타일링 복구
-          this.randomInput();
-          this.inputname.css({
-            'background-color': 'white',
-            'color': 'black',
-            'font-weight': 'none'
-          });
-          this.inputemail.css({
-            'background-color': 'white',
-            'color': 'black',
-            'font-weight': 'none'
-          });
-        }, 4000)
-        return;
-      } else {
-
-        Materialize.toast('정상적으로 추가되었어요!', 3000, 'rounded')
-
-        // 데이터 상자에 데이터 삽입
-        this.put(name, email);
-        setTimeout(() => {
-          this.randomInput();
-        }, 3000);
-
-        this.rendering('mark', this.findPosition(this.loseloseHashCode(name))[0].key);
-        return;
+          // 충돌된 인풋 박스 스타일링
+          this.inputname.css({ 'color': '#f03e3e', 'font-weight': 'bold' });
+          this.inputemail.css({ 'color': '#f03e3e', 'font-weight': 'bold' });
+          setTimeout(() => {
+            // 4초 지난후 스타일링 복구
+            this.randomInput();
+            this.inputname.css({ 'background-color': 'white', 'color': 'black', 'font-weight': 'none' });
+            this.inputemail.css({ 'background-color': 'white', 'color': 'black', 'font-weight': 'none' });
+          }, 4000)
+          return;
+        }
       }
     })
 
