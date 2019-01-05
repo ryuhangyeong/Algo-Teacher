@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Algo Teacher</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="home">
+    <header>
+      <div class="container">
+        <a class="logo" href="index.html">ALGO Teacher</a>
+        <div class="menu">
+
+          <a href="index.html"><span class="menu_info">다른 모듈로</span></a>
+          <a href="contribution.html"><span class="menu_maker">만든이 / 공헌하기</span></a>
+        </div>
+      </div>
+    </header>
+    <div class="showcase">
+      <div class="container">
+        <div class="showcase_infomation">
+          <h1>Stack</h1>
+          <p>
+            스택(Stack)이란 자료구조는 선입후출(First In, Last Out: FILO), 후입선출(Last In, First Out: LIFO)의 구조를 가지고 있습니다.
+          </p>
+          <h1>참고 자료</h1>
+          <ul>
+            <li><a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%83%9D">스택 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
+            <li><a href="https://www.youtube.com/results?search_query=%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0+%EC%8A%A4%ED%83%9D">스택 (자료구조) - 유튜브 검색</a></li>
+          </ul>
+        </div>
+        <div class="showcase_image">
+          <img src="img/stack.jpg" alt="stack">
+        </div>
+      </div>
+    </div>
+
+    <div class="more">
+      <a href="#module">
+        <p>자세히 알아보기</p>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </a>
+    </div>
+  </div>
+  <div class="container" id="module" style="margin-top: 4rem;">
+      <div class="content">
+        <div class="slider_control">
+          <div class="button left" id="slider_left">
+            <i class="material-icons">chevron_left</i>
+          </div>
+          <div class="button right" id="slider_right">
+            <i class="material-icons">chevron_right</i>
+          </div>
+        </div>
+
+        <div class="slider" id="slider">
+          <ul>
+            <li>
+              <h1>도움 영상</h1>
+              <iframe width="100%" height="500" src="https://www.youtube.com/embed/MaLRjxoaowA" frameborder="0" allowfullscreen></iframe>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h1>시각화</h1>
+      <div class="content">
+        스택은 LIFO(후입선출) 원리에 따라 정렬된 컬렉션이다. 스택의 자료는 항상 동일한 종단점에서 추가/삭제된다.
+      </div>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input" id="stack_input"/>
+            <button id="stack_create">추가</button>
+            <button class="remove" id="stack_remove">삭제</button>
+          </div>
+        </div>
+        <div class="queue">
+          <div class="queue_text" id="stack_text"></div>
+          <div class="queue_list" id="stack_list"></div>
+        </div>
+      </div>
+
+    <h1>진법 변환(10진수 → 2진수)</h1>
+    <div class="content">
+      스택 활용 방법으로 10진수를 2진수로 변환한다.
+    </div>
+    <div class="content">
+      <div class="visible">
+        <div class="visible_control">
+          <input type="text" class="visible_input" id="mulBase_input"/>
+          <button id="mulBase_create">변환</button>
+        </div>
+      </div>
+      <div class="mulBase_container"></div>
+    </div>
+
+    <h1>회문 검사기</h1>
+    <div class="content">
+      스택 활용 방법으로 주어진 문자가 회문인가? 아닌가? 를 판단한다.
+    </div>
+    <div class="content">
+      <div class="visible">
+        <div class="visible_control">
+          <input type="text" class="visible_input" id="palindrome_input"/>
+          <button id="palindrome_create">검사</button>
+          <button class="remove" id="palindrome_remove">초기화</button>
+        </div>
+      </div>
+      <div class="palindrome_container"></div>
+    </div>
+
+    </div>
+  </div>
+
+  <div class="fixed">
+    <a href="/"><i class="material-icons">home</i></a>
+  </div>
+  <script src="bundle.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Algo Teacher</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="home">
+    <header>
+      <div class="container">
+        <a class="logo" href="index.html">ALGO Teacher</a>
+        <div class="menu">
+
+          <a href="index.html"><span class="menu_info">다른 모듈로</span></a>
+          <a href="contribution.html"><span class="menu_maker">만든이 / 공헌하기</span></a>
+        </div>
+      </div>
+    </header>
+    <div class="showcase">
+      <div class="container">
+        <div class="showcase_infomation">
+          <h1>Hash Table</h1>
+          <p>
+            해시 테이블(hash table), 해시 맵(hash map), 해시 표는 컴퓨팅에서 키를 값에 매핑할 수 있는 구조인, 연관 배열 추가에 사용되는 자료 구조이다. 해시 테이블은 해시 함수를 사용하여 색인(index)을 버킷(bucket)이나 슬롯(slot)의 배열로 계산한다.          </p>
+          </p>
+          <h1>참고 자료</h1>
+          <ul>
+						<li><a href="https://www.youtube.com/results?search_query=%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0+%ED%95%B4%EC%8B%9C+%ED%85%8C%EC%9D%B4%EB%B8%94">해시 테이블 (자료구조) - 유튜브 검색</a></li>
+          </ul>
+        </div>
+        <div class="showcase_image">
+          <img src="img/hashtable.jpg" alt="hashtable">
+        </div>
+      </div>
+    </div>
+
+    <div class="more">
+      <a href="#module">
+        <p>자세히 알아보기</p>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </a>
+    </div>
+  </div>
+  <div class="container" id="module" style="margin-top: 4rem;">
+      <div class="content">
+        <div class="slider_control">
+          <div class="button left" id="slider_left">
+            <i class="material-icons">chevron_left</i>
+          </div>
+          <div class="button right" id="slider_right">
+            <i class="material-icons">chevron_right</i>
+          </div>
+        </div>
+
+        <div class="slider" id="slider">
+          <ul>
+            <li>
+              <h1>도움 영상</h1>
+              <iframe width="100%" height="500" src="https://www.youtube.com/embed/nZ4DQKVatwE" frameborder="0" allowfullscreen></iframe>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <h1>시각화</h1>
+      <div class="content">
+        주어진 이름값을 해쉬화하여 해당하는 위치에 삽입한다. 이름이 다르더라도 해쉬값이 동일한 경우, 충돌되었다고 표현하며 충돌 방지법에는 선형 탐색 및 체이닝 방법이 존재한다. 아래 참조
+      </div>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input" id="hashtable_input_name"/>
+            <input type="text" class="visible_input" id="hashtable_input_email"/>
+            <button id="hashtable_create">추가</button>
+            <button class="remove" id="hashtable_remove">삭제</button>
+          </div>
+        </div>
+
+        <div class="hashtable_table" id="hashtable_table">
+          <table></table>
+        </div>
+      </div>
+
+      <h2>선형 탐색</h2>
+      <div class="content">
+        <p>선형 탐색법은 새 원소 추가시 해시 값이 이미 점유된 상태라면 해시 값 + 1을 찾아보고, 해시 값 + 1이 점유되었다면 해시 값 + 2를 찾아보는 식으로 충돌을 회피한다.</p>
+      </div>
+      <div class="content">
+        <div class="slider_control">
+          <div class="button left" id="linear_slider_left">
+            <i class="material-icons">chevron_left</i>
+          </div>
+          <div class="button right" id="linear_slider_right">
+            <i class="material-icons">chevron_right</i>
+          </div>
+        </div>
+
+        <div class="slider" id="linear_slider">
+          <ul style="margin-top: 1rem;">
+            <li>
+              <div class="hashtable_table">
+                <table>
+                  <tr>
+                    <th>이름/키</th>
+                    <th>해시 값</th>
+                    <th>값</th>
+                  </tr>
+                  <tr>
+                    <td>정준하</td>
+                    <td>6</td>
+                    <td>정준하@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>유재석</td>
+                    <td>14</td>
+                    <td>유재석@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>박명수</td>
+                    <td>28</td>
+                    <td>박명수@gmail.com</td>
+                  </tr>
+                </table>
+                <div style="margin-top: 1rem;">
+                  <p>
+                    표와 동일한 데이터가 이미 존재합니다. 우리는 류한경(Hash Value 28)을 추가한다고 가정합니다.
+                  </p>
+                  <p>
+                    이는 이미 존재하는 박명수(Hash Value 28)와 해시값이 동일하기에 <span style="color: #f03e3e; font-weight: bold;">충돌</span>이 발생합니다.
+                  </p>
+                  <p>
+                    <span style="color: #f03e3e; font-weight: bold;">선형 탐색</span>은 이미 점유된 상태라면 해시 값 + 1 을 검색하며 충돌을 회피합니다.
+                  </p>
+                  <p>
+                    다음 슬라이드로 이동하세요.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="hashtable_table">
+                <table>
+                  <tr>
+                    <th>이름/키</th>
+                    <th>해시 값</th>
+                    <th>값</th>
+                  </tr>
+                  <tr>
+                    <td>정준하</td>
+                    <td>6</td>
+                    <td>정준하@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>유재석</td>
+                    <td>14</td>
+                    <td>유재석@gmail.com</td>
+                  </tr>
+                  <tr style="color: #f03e3e; font-weight: bold;">
+                    <td>박명수</td>
+                    <td>28</td>
+                    <td>박명수@gmail.com</td>
+                  </tr>
+                  <tr style="color: #1c7cd6; font-weight: bold;">
+                    <td>류한경</td>
+                    <td>29</td>
+                    <td>류한경@gmail.com</td>
+                  </tr>
+                </table>
+                <div style="margin-top: 1rem;">
+                  <p>류한경 (Hash Value 28) 추가시 박명수(hash value 28)와 충돌이 발생합니다.</p>
+                  <p>박명수 (Hash Value 28)의 해시 값 + 1(29)가 점유된 상태인지 아닌지 확인합니다.</p>
+                  <p><span style="color: #f03e3e; font-weight: bold;">점유된 상태가 아니라면,</span> 류한경을 해당 위치에 추가합니다.</p>
+                </textarea>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input" id="linear_input_name"/>
+            <input type="text" class="visible_input" id="linear_input_email"/>
+            <button id="linear_create">추가</button>
+            <button id="linear_remove" class="remove">삭제</button>
+          </div>
+        </div>
+
+        <div class="hashtable_table" id="linear_table">
+          <table></table>
+        </div>
+      </div>
+
+      <h2>체이닝</h2>
+      <div class="content">
+        <p>체이닝은 테이블의 인덱스별로 연결리스트를 생성하여 그 안에 원소를 저장하는 기법이다. 충돌을 해결하는 가장 단순한 기법이다.</p>
+      </div>
+
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input" id="chaining_input_name">
+            <input type="text" class="visible_input" id="chaining_input_email">
+            <button id="chaining_create">추가</button>
+            <button class="remove" id="chaining_remove">삭제</button>
+          </div>
+          <div class="crash_chaining"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="fixed">
+    <a href="/"><i class="material-icons">home</i></a>
+  </div>
+  <script src="bundle.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+</body>
+</html>

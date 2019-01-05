@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Algo Teacher</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="home">
+    <header>
+      <div class="container">
+        <a class="logo" href="index.html">ALGO Teacher</a>
+        <div class="menu">
+
+          <a href="index.html"><span class="menu_info">다른 모듈로</span></a>
+          <a href="contribution.html"><span class="menu_maker">만든이 / 공헌하기</span></a>
+        </div>
+      </div>
+    </header>
+    <div class="showcase">
+      <div class="container">
+        <div class="showcase_infomation">
+          <h1>Set</h1>
+          <p>
+            수학에서 집합(集合, set)은 어떤 조건이 주어졌을 때, 그 조건이 가리키는 대상이 분명한 것들의 모임을 말한다. 집합을 다루는 이론을 집합론이라고 한다.
+          </p>
+          <h1>참고 자료</h1>
+          <ul>
+            <li><a href="#">큐 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
+            <li><a href="#">큐 (자료구조) - 나무위키</a></li>
+            <li><a href="#">큐 (자료구조) - 네이버</a></li>
+            <li><a href="#">큐 (자료구조) - 유튜브 검색</a></li>
+          </ul>
+        </div>
+        <div class="showcase_image">
+          <img src="img/queue.jpg" alt="queue">
+        </div>
+      </div>
+    </div>
+
+    <div class="more">
+      <a href="#module">
+        <p>자세히 알아보기</p>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </a>
+    </div>
+  </div>
+  <div class="container" id="module" style="margin-top: 4rem;">
+      <!-- 기본 -->
+      <div class="content">
+        <h1>기본 집합</h1>
+      </div>
+      <div class="content">
+        집합은 정렬되지 않은 컬렉션으로 원소는 중복되지 않는다.
+      </div>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input"  id="set_input"/>
+            <button id="set_create" >추가</button>
+            <button class="remove" id="set_remove">삭제</button>
+          </div>
+          <h2 class="setAlert" id="setAlert"></h2>
+          <div class="set_visible_box">
+            <div class="set_left">{</div>
+            <div class="set_text" id="set_text"></div>
+            <div class="set_right">}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 교집합 -->
+      <div class="content">
+        <h1>교집합</h1>
+      </div>
+      <div class="content">
+        두 개 집합의 공통된 원소를 반환한다.
+      </div>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input"  id="intersectionSet_inputA"/>
+            <input type="text" class="visible_input"  id="intersectionSet_inputB"/>
+            <button id="intersectionSet_create" >추가</button>
+            <button class="remove" id="intersectionSet_clear">초기화</button>
+          </div>
+          <h2 class="setAlert" id="setAlert"></h2>
+          <div class="set_visible_box">
+            <div class="set_left">{</div>
+            <div class="set_text" id="intersectionSet_text"></div>
+            <div class="set_right">}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 합집합 -->
+      <div class="content">
+        <h1>합집합</h1>
+      </div>
+      <div class="content">
+        두 개 원소 집합을 합친 결과를 반환한다.
+      </div>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input"  id="unionSet_inputA"/>
+            <input type="text" class="visible_input"  id="unionSet_inputB"/>
+            <button id="unionSet_create" >추가</button>
+            <button class="remove" id="unionSet_clear">초기화</button>
+          </div>
+          <h2 class="setAlert" id="setAlert"></h2>
+          <div class="set_visible_box">
+            <div class="set_left">{</div>
+            <div class="set_text" id="unionsSet_text"></div>
+            <div class="set_right">}</div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="fixed">
+    <a href="/"><i class="material-icons">home</i></a>
+  </div>
+  <script src="bundle.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Algo Teacher</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="home">
+    <header>
+      <div class="container">
+        <a class="logo" href="index.html">ALGO Teacher</a>
+        <div class="menu">
+
+          <a href="index.html"><span class="menu_info">다른 모듈로</span></a>
+          <a href="contribution.html"><span class="menu_maker">만든이 / 공헌하기</span></a>
+        </div>
+      </div>
+    </header>
+    <div class="showcase">
+      <div class="container">
+        <div class="showcase_infomation">
+          <h1>Search</h1>
+          <p>
+            데이터를 검색하는 방법에 대해 알아보자.
+          </p>
+          <h1>참고 자료</h1>
+          <ul>
+            <li><a href="https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%A7%84_%EA%B2%80%EC%83%89_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">이진 검색 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
+            <li><a href="https://ko.wikipedia.org/wiki/%EC%88%9C%EC%B0%A8_%EA%B2%80%EC%83%89_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">순차 검색 (자료구조) - 나무위키</a></li>
+          </ul>
+        </div>
+        <div class="showcase_image">
+          <img src="img/search.jpg" alt="search">
+        </div>
+      </div>
+    </div>
+
+    <div class="more">
+      <a href="#module">
+        <p>자세히 알아보기</p>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </a>
+    </div>
+  </div>
+  <div class="container" id="module" style="margin-top: 4rem;">
+
+      <h1>시각화</h1>
+
+      <h5>순차 검색</h5>
+      <div class="content">
+        <p>원하는 원소를 찾을 때까지 자료 구조 전체를 뒤져보는, 가장 비효율적인 알고리즘</p>
+      </div>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input" id="search_input_array" disabled="disabled"/>
+            <input type="text" class="visible_input" id="search_input_value" placeholder="검색할 데이터를 입력하세요."/>
+            <button id="search_button">검색</button>
+            <button class="remove" id="search_clear">초기화</button>
+          </div>
+        </div>
+        <div class="search_container"></div>
+      </div>
+
+      <h5>이진 검색</h5>
+      <div class="content">
+        <p>
+          1. 배열을 정렬한다. <br/>
+          2. 배열 중에서 중간 값을 선택한다. <br/>
+          3. 이 원소가 검색할 원소가 일치하면 검색은 종료된다.(값을 찾았다) <br/>
+          4. 검색할 원소가 중간 값보다 작다면, 중간 값 왼쪽 원소들 중 하나일 것이므로, 1번으로 다시 돌아간다. <br/>
+          5. 검색할 원소가 중간 값보다 크다면, 중간 값 오른쪽 원소들 중 하나일 것이므로, 1번으로 다시 돌아간다. <br/>
+        </p>
+      </div>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input" id="binary_search_input_array" disabled="disabled"/>
+            <input type="text" class="visible_input" id="binary_search_input_value" placeholder="검색할 데이터를 입력하세요."/>
+            <button id="binary_search_button">검색</button>
+            <button class="remove" id="binary_search_clear">초기화</button>
+          </div>
+        </div>
+        <div class="binary_search_container"></div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="fixed">
+    <a href="/"><i class="material-icons">home</i></a>
+  </div>
+  <script src="bundle.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Algo Teacher</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="home">
+    <header>
+      <div class="container">
+        <a class="logo" href="index.html">ALGO Teacher</a>
+        <div class="menu">
+
+          <a href="index.html"><span class="menu_info">다른 모듈로</span></a>
+          <a href="contribution.html"><span class="menu_maker">만든이 / 공헌하기</span></a>
+        </div>
+      </div>
+    </header>
+    <div class="showcase">
+      <div class="container">
+        <div class="showcase_infomation">
+          <h1>Queue</h1>
+          <p>
+            큐(queue)는 컴퓨터의 기본적인 자료 구조의 한가지로, 먼저 집어 넣은 데이터가 먼저 나오는 FIFO (First In First Out)구조로 저장하는 형식을 말한다.
+          </p>
+          <h1>참고 자료</h1>
+          <ul>
+            <li><a href="https://ko.wikipedia.org/wiki/%ED%81%90_(%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0)">큐 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
+            <li><a href="https://www.youtube.com/results?search_query=%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0+%ED%81%90">큐 (자료구조) - 유튜브 검색</a></li>
+          </ul>
+        </div>
+        <div class="showcase_image">
+          <img src="img/queue.jpg" alt="queue">
+        </div>
+      </div>
+    </div>
+
+    <div class="more">
+      <a href="#module">
+        <p>자세히 알아보기</p>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </a>
+    </div>
+  </div>
+  <div class="container" id="module" style="margin-top: 4rem;">
+      <div class="content">
+        <div class="slider_control">
+          <div class="button left" id="slider_left">
+            <i class="material-icons">chevron_left</i>
+          </div>
+          <div class="button right" id="slider_right">
+            <i class="material-icons">chevron_right</i>
+          </div>
+        </div>
+
+        <div class="slider" id="slider">
+          <ul>
+            <li>
+              <h1>도움 영상</h1>
+              <iframe width="100%" height="500" src="https://www.youtube.com/embed/_aU2e70gYlo" frameborder="0" allowfullscreen></iframe>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h1>시각화</h1>
+      <div class="content">
+        큐는 FIFO(선입선출) 원리에 따라 정렬된 컬렉션이다. 새 원소는 뒤에서 추가되고, 삭제는 앞 부분에서 일어나게 된다.
+      </div>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input" id="queue_input"/>
+            <button id="queue_create">추가</button>
+            <button class="remove" id="queue_remove">삭제</button>
+          </div>
+        </div>
+        <div class="queue">
+          <div class="queue_text" id="queue_text"></div>
+          <div class="queue_list" id="queue_list"></div>
+        </div>
+      </div>
+
+      <h1>우선 순위 큐</h1>
+      <div class="content">
+        우선순위 큐는 원소가 가지는 우선순위에 따라 추가된다. 삭제는 우선순위가 작은 순서(앞 부분)부터 삭제 된다.( 설계에 따라 달라질 수 있다 )
+      </div>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input" id="priority_queue_number"/>
+            <input type="text" class="visible_input" id="priority_queue_name"/>
+            <button id="priority_queue_create">추가</button>
+            <button class="remove" id="priority_queue_remove">삭제</button>
+          </div>
+        </div>
+
+        <div class="priority_queue_container"></div>
+      </div>
+
+    </div>
+    <div class="fixed">
+      <a href="/"><i class="material-icons">home</i></a>
+    </div>
+  </div>
+  <script src="bundle.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Algo Teacher</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="home">
+    <header>
+      <div class="container">
+        <a class="logo" href="index.html">ALGO Teacher</a>
+        <div class="menu">
+
+          <a href="index.html"><span class="menu_info">다른 모듈로</span></a>
+          <a href="contribution.html"><span class="menu_maker">만든이 / 공헌하기</span></a>
+        </div>
+      </div>
+    </header>
+    <div class="showcase">
+      <div class="container">
+        <div class="showcase_infomation">
+            <h1>Graph</h1>
+          <p>
+            그래프 이론에서, 그래프(영어: graph, 문화어: 그라프)는 일련의 꼭짓점들과 그 사이를 잇는 변들로 구성된 조합론적 구조이다.
+          </p>
+          <h1>참고 자료</h1>
+          <ul>
+            <li><a href="https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%98%ED%94%84">그래프 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
+          </ul>
+        </div>
+        <div class="showcase_image">
+          <img src="img/graph.jpg" alt="graph">
+        </div>
+      </div>
+    </div>
+
+    <div class="more">
+      <a href="#module">
+        <p>자세히 알아보기</p>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </a>
+    </div>
+  </div>
+  <div class="container" id="module" style="margin-top: 4rem;">
+      <div class="content">
+        <div class="slider_control">
+          <div class="button left" id="slider_left">
+            <i class="material-icons">chevron_left</i>
+          </div>
+          <div class="button right" id="slider_right">
+            <i class="material-icons">chevron_right</i>
+          </div>
+        </div>
+
+        <div class="slider" id="slider">
+          <ul>
+            <li>
+              <h1>도움 영상</h1>
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/hiW1KAyN1sc" frameborder="0" allowfullscreen></iframe>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <h1>인접 행렬</h1>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <button id="graph_visible">변환</button>
+            <button class="remove" id="graph_clear">초기화</button>
+          </div>
+        </div>
+        <div class="graph">
+          <div class="left">
+            <textarea name="name" id="matrix">
+0 1 0 0 0
+1 0 1 1 1
+0 1 0 1 0
+0 1 1 0 0
+0 1 0 0 0
+            </textarea>
+          </div>
+          <div class="right">
+            <canvas id="output"></canvas>
+          </div>
+        </div>
+      </div>
+      <h1>인접 리스트</h1>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <button id="adjacency_visible">변환</button>
+            <button class="remove" id="adjacency_clear">초기화</button>
+          </div>
+        </div>
+
+        <div class="graph">
+          <div class="left_text">
+            <textarea name="name" id="left_text" readonly>
+1
+2
+3
+4
+5</textarea>
+          </div>
+          <div class="left">
+            <textarea name="name" id="adjacency">
+2
+135
+24
+3
+2</textarea>
+          </div>
+          <div class="right">
+            <canvas id="output_adjacency"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="fixed">
+      <a href="/"><i class="material-icons">home</i></a>
+    </div>
+  <script src="bundle.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+</body>
+</html>

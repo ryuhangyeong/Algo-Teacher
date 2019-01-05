@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Algo Teacher</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="home">
+    <header>
+      <div class="container">
+        <a class="logo" href="index.html">ALGO Teacher</a>
+        <div class="menu">
+
+          <a href="index.html"><span class="menu_info">다른 모듈로</span></a>
+          <a href="contribution.html"><span class="menu_maker">만든이 / 공헌하기</span></a>
+        </div>
+      </div>
+    </header>
+    <div class="showcase">
+      <div class="container">
+        <div class="showcase_infomation">
+          <h1>Linked List</h1>
+          <p>
+            연결 리스트, 링크드 리스트(linked list)는 각 노드가 데이터와 포인터를 가지고 한 줄로 연결되어 있는 방식으로 데이터를 저장하는 자료 구조이다. 이름에서 말하듯이 데이터를 담고 있는 노드들이 연결되어 있는데, 노드의 포인터가 다음이나 이전의 노드와의 연결을 담당하게 된다.
+          </p>
+          <h1>참고 자료</h1>
+          <ul>
+            <li><a href="https://ko.wikipedia.org/wiki/%EC%97%B0%EA%B2%B0_%EB%A6%AC%EC%8A%A4%ED%8A%B8">연결 리스트 (자료 구조) - 위키백과, 우리 모두의 백과사전</a></li>
+          </ul>
+        </div>
+        <div class="showcase_image">
+          <img src="img/linked.jpg" alt="linked">
+        </div>
+      </div>
+    </div>
+
+    <div class="more">
+      <a href="#module">
+        <p>자세히 알아보기</p>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </a>
+    </div>
+  </div>
+  <div class="container" id="module" style="margin-top: 4rem;">
+      <div class="content">
+        <div class="slider_control">
+          <div class="button left" id="slider_left">
+            <i class="material-icons">chevron_left</i>
+          </div>
+          <div class="button right" id="slider_right">
+            <i class="material-icons">chevron_right</i>
+          </div>
+        </div>
+
+        <div class="slider" id="slider">
+          <ul>
+            <li>
+              <h1>도움 영상</h1>
+              <iframe width="100%" height="500" src="https://www.youtube.com/embed/eTwYE-ercNM" frameborder="0" allowfullscreen></iframe>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <h1>시각화</h1>
+      <div class="content">
+        <div class="visible">
+          <div class="visible_control">
+            <input type="text" class="visible_input" id="linked_input_name" placeholder="추가하는 이름을 적어주세요.">
+            <input type="text" class="visible_input" id="linked_input_index" placeholder="추가하는 위치(인덱스)를 적고 Enter 를 누르세요.">
+            <button id="linked_create">추가</button>
+            <button id="linked_remove" class="remove">삭제</button>
+          </div>
+          <div class="linked"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="fixed">
+    <a href="/"><i class="material-icons">home</i></a>
+  </div>
+  <script src="bundle.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+</body>
+</html>
